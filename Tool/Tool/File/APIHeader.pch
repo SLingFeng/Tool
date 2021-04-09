@@ -1,0 +1,59 @@
+//
+//  APIHeader.pch
+//
+//  Created by SADF on 17/3/13.
+//  Copyright © 2017年 Hale. All rights reserved.
+//
+
+#ifndef APIHeader_pch
+#define APIHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#pragma mark - url
+#ifdef DEBUG
+//测试
+//#define kURL_I @"http://192.168.0.150:8080"
+#define kURL_I @"http://new.ganxu.wang"
+#define kURL [NSString stringWithFormat:@"%@/index.php?m=Api&", kURL_I]
+#else
+//正式
+#define kURL_I @"http://api.yogobei.com:8080"
+#define kURL [NSString stringWithFormat:@"%@/", kURL_I]
+#endif
+
+//#ifdef DEBUG
+////测试
+//#define kURL_USER_ID @"1"
+//#else
+////正式
+#define kURL_USER_ID [GVUserDefaults standardUserDefaults].ygbUserId
+//#endif
+
+
+#define kURL_app(_other) [NSString stringWithFormat:@"%@%@", kURL, _other]
+#define kURL_Urlstring(_url) [NSURL URLWithString:[NSString stringWithFormat:@"%@", _url]]
+
+//banner
+#define kURL_Banner_Str(_url) [NSString stringWithFormat:@"%@/image/%@", kURL, _url]
+#define kURL_Banner_Url(_url) [NSURL URLWithString:[NSString stringWithFormat:@"%@/image/%@", kURL, _url]]
+//图片url
+#define kURL_Image_Str(_url) [NSString stringWithFormat:@"%@/logo/%@", kURL, _url]
+#define kURL_Image_Url(_url) [NSURL URLWithString:[NSString stringWithFormat:@"%@/ygb/logo/%@", kURL, _url]]
+//身份证
+#define kURL_IdCard_Str(_url) [NSString stringWithFormat:@"%@/idcard/%@", kURL, _url]
+#define kURL_IdCard_Url(_url) [NSURL URLWithString:[NSString stringWithFormat:@"%@/idcard/%@", kURL, _url]]
+//证书
+#define kURL_Certificate_Str(_url) [NSString stringWithFormat:@"%@/certificate/%@", kURL, _url]
+#define kURL_Certificate_Url(_url) [NSURL URLWithString:[NSString stringWithFormat:@"%@/certificate/%@", kURL, _url]]
+//等待图片
+#define kPlaceholderImage [UIImage imageNamed:@"zhanweitu"]
+#define kPlaceholderUserImage [UIImage imageNamed:@"list_icon_user"]
+//上传压缩率
+#define kQuality 1
+
+#define HttpA(_url) [NSString stringWithFormat:@"%@%@", kURL, _url]
+
+
+#endif /* APIHeader_pch */

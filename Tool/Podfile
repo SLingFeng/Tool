@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'Tool' do
+  # Comment the next line if you don't want to use dynamic frameworks
+#  use_frameworks!
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SDAutoLayout'
+pod 'JSONModel'
+pod 'MJRefresh'
+pod 'Masonry'
+pod 'DZNEmptyDataSet'
+pod 'WPAttributedMarkup'
+pod 'MBProgressHUD'
+pod 'CYLTabBarController'
+pod 'SDCycleScrollView'
+pod 'IQKeyboardManager'
+pod 'Reachability'
+#pod ''
+#pod ''
+#pod ''
+#pod ''
+#pod ''
+#pod ''
+#pod ''
+#pod ''
+
+
+
+  # Pods for Tool
+
+end
