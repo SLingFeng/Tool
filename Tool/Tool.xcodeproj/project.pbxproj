@@ -23,7 +23,6 @@
 		3121E3B526202997008A7E43 /* SLF_MainTabBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32726202997008A7E43 /* SLF_MainTabBarConfig.m */; };
 		3121E3B626202997008A7E43 /* MyBaseNavigtionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32D26202997008A7E43 /* MyBaseNavigtionViewController.m */; };
 		3121E3B726202997008A7E43 /* SLFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32F26202997008A7E43 /* SLFBaseModel.m */; };
-		3121E3B826202997008A7E43 /* UIImage+CircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33226202997008A7E43 /* UIImage+CircleImage.m */; };
 		3121E3B926202997008A7E43 /* MyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33326202997008A7E43 /* MyCollectionView.m */; };
 		3121E3BA26202997008A7E43 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33426202997008A7E43 /* MyTableView.m */; };
 		3121E3BB26202997008A7E43 /* ShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33626202997008A7E43 /* ShowView.m */; };
@@ -35,7 +34,6 @@
 		3121E3C126202997008A7E43 /* BaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33D26202997008A7E43 /* BaseImageView.m */; };
 		3121E3C226202997008A7E43 /* UIImageView+SLFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E33F26202997008A7E43 /* UIImageView+SLFImageView.m */; };
 		3121E3C326202997008A7E43 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E34426202997008A7E43 /* BaseTextField.m */; };
-		3121E3C426202997008A7E43 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E34926202997008A7E43 /* MyView.m */; };
 		3121E3C626202997008A7E43 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E35126202997008A7E43 /* NewFeatureController.m */; };
 		3121E3C726202997008A7E43 /* OpenOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E35426202997008A7E43 /* OpenOneViewController.m */; };
 		3121E3C826202997008A7E43 /* SLFCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E35826202997008A7E43 /* SLFCommonTools.m */; };
@@ -67,6 +65,8 @@
 		3121E41426202ED9008A7E43 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E41326202ED9008A7E43 /* GVUserDefaults.m */; };
 		3121E41B26203317008A7E43 /* UIColor+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E41A26203317008A7E43 /* UIColor+LF.m */; };
 		3121E45726203D91008A7E43 /* UIButton+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45626203D91008A7E43 /* UIButton+LF.m */; };
+		3121E45F26204864008A7E43 /* UILabel+LFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45E26204864008A7E43 /* UILabel+LFLabel.m */; };
+		3121E46426204CEF008A7E43 /* UIView+LFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E46326204CEF008A7E43 /* UIView+LFView.m */; };
 		3D48EE8B894A0B0C705B3B4A /* libPods-Tool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +101,6 @@
 		3121E32D26202997008A7E43 /* MyBaseNavigtionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseNavigtionViewController.m; sourceTree = "<group>"; };
 		3121E32F26202997008A7E43 /* SLFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFBaseModel.m; sourceTree = "<group>"; };
 		3121E33026202997008A7E43 /* SLFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFBaseModel.h; sourceTree = "<group>"; };
-		3121E33226202997008A7E43 /* UIImage+CircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CircleImage.m"; sourceTree = "<group>"; };
 		3121E33326202997008A7E43 /* MyCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionView.m; sourceTree = "<group>"; };
 		3121E33426202997008A7E43 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
 		3121E33526202997008A7E43 /* BaseTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTextField.h; sourceTree = "<group>"; };
@@ -109,12 +108,10 @@
 		3121E33726202997008A7E43 /* MyViewToScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewToScroll.m; sourceTree = "<group>"; };
 		3121E33826202997008A7E43 /* SLFEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFEditTableViewCell.m; sourceTree = "<group>"; };
 		3121E33926202997008A7E43 /* MyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
-		3121E33A26202997008A7E43 /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
 		3121E33B26202997008A7E43 /* MyTimeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTimeButton.m; sourceTree = "<group>"; };
 		3121E33C26202997008A7E43 /* MyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextView.m; sourceTree = "<group>"; };
 		3121E33D26202997008A7E43 /* BaseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageView.m; sourceTree = "<group>"; };
 		3121E33F26202997008A7E43 /* UIImageView+SLFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SLFImageView.m"; sourceTree = "<group>"; };
-		3121E34026202997008A7E43 /* UIImage+CircleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CircleImage.h"; sourceTree = "<group>"; };
 		3121E34126202997008A7E43 /* SLFEditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFEditTableViewCell.h; sourceTree = "<group>"; };
 		3121E34226202997008A7E43 /* MyViewToScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewToScroll.h; sourceTree = "<group>"; };
 		3121E34326202997008A7E43 /* ShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowView.h; sourceTree = "<group>"; };
@@ -123,7 +120,6 @@
 		3121E34626202997008A7E43 /* MyCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionView.h; sourceTree = "<group>"; };
 		3121E34726202997008A7E43 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
 		3121E34826202997008A7E43 /* MyTimeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTimeButton.h; sourceTree = "<group>"; };
-		3121E34926202997008A7E43 /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		3121E34A26202997008A7E43 /* MyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
 		3121E34B26202997008A7E43 /* UIImageView+SLFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SLFImageView.h"; sourceTree = "<group>"; };
 		3121E34C26202997008A7E43 /* BaseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageView.h; sourceTree = "<group>"; };
@@ -191,6 +187,10 @@
 		3121E41A26203317008A7E43 /* UIColor+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LF.m"; sourceTree = "<group>"; };
 		3121E45526203D91008A7E43 /* UIButton+LF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LF.h"; sourceTree = "<group>"; };
 		3121E45626203D91008A7E43 /* UIButton+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LF.m"; sourceTree = "<group>"; };
+		3121E45D26204864008A7E43 /* UILabel+LFLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LFLabel.h"; sourceTree = "<group>"; };
+		3121E45E26204864008A7E43 /* UILabel+LFLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LFLabel.m"; sourceTree = "<group>"; };
+		3121E46226204CEF008A7E43 /* UIView+LFView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LFView.h"; sourceTree = "<group>"; };
+		3121E46326204CEF008A7E43 /* UIView+LFView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LFView.m"; sourceTree = "<group>"; };
 		8053BBD70863C1C0C728464A /* Pods-Tool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.release.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.release.xcconfig"; sourceTree = "<group>"; };
 		E31C81798C00A0794D623A63 /* Pods-Tool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.debug.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.debug.xcconfig"; sourceTree = "<group>"; };
 		F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,16 +293,16 @@
 		3121E32326202997008A7E43 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3121E32426202997008A7E43 /* MyBaseCollectionViewController.m */,
-				3121E32526202997008A7E43 /* MyBaseTableViewController.m */,
-				3121E32626202997008A7E43 /* MyBaseViewController.m */,
-				3121E32726202997008A7E43 /* SLF_MainTabBarConfig.m */,
-				3121E32826202997008A7E43 /* MyBaseNavigtionViewController.h */,
 				3121E32926202997008A7E43 /* MyBaseCollectionViewController.h */,
-				3121E32A26202997008A7E43 /* MyBaseViewController.h */,
-				3121E32B26202997008A7E43 /* MyBaseTableViewController.h */,
-				3121E32C26202997008A7E43 /* SLF_MainTabBarConfig.h */,
+				3121E32426202997008A7E43 /* MyBaseCollectionViewController.m */,
+				3121E32826202997008A7E43 /* MyBaseNavigtionViewController.h */,
 				3121E32D26202997008A7E43 /* MyBaseNavigtionViewController.m */,
+				3121E32B26202997008A7E43 /* MyBaseTableViewController.h */,
+				3121E32526202997008A7E43 /* MyBaseTableViewController.m */,
+				3121E32A26202997008A7E43 /* MyBaseViewController.h */,
+				3121E32626202997008A7E43 /* MyBaseViewController.m */,
+				3121E32C26202997008A7E43 /* SLF_MainTabBarConfig.h */,
+				3121E32726202997008A7E43 /* SLF_MainTabBarConfig.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,18 +333,12 @@
 				3121E33C26202997008A7E43 /* MyTextView.m */,
 				3121E34826202997008A7E43 /* MyTimeButton.h */,
 				3121E33B26202997008A7E43 /* MyTimeButton.m */,
-				3121E33A26202997008A7E43 /* MyView.h */,
-				3121E34926202997008A7E43 /* MyView.m */,
 				3121E34226202997008A7E43 /* MyViewToScroll.h */,
 				3121E33726202997008A7E43 /* MyViewToScroll.m */,
 				3121E34326202997008A7E43 /* ShowView.h */,
 				3121E33626202997008A7E43 /* ShowView.m */,
 				3121E34126202997008A7E43 /* SLFEditTableViewCell.h */,
 				3121E33826202997008A7E43 /* SLFEditTableViewCell.m */,
-				3121E34026202997008A7E43 /* UIImage+CircleImage.h */,
-				3121E33226202997008A7E43 /* UIImage+CircleImage.m */,
-				3121E34B26202997008A7E43 /* UIImageView+SLFImageView.h */,
-				3121E33F26202997008A7E43 /* UIImageView+SLFImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +430,12 @@
 				3121E36B26202997008A7E43 /* ZhanShiKuangView.m */,
 				3121E45526203D91008A7E43 /* UIButton+LF.h */,
 				3121E45626203D91008A7E43 /* UIButton+LF.m */,
+				3121E45D26204864008A7E43 /* UILabel+LFLabel.h */,
+				3121E45E26204864008A7E43 /* UILabel+LFLabel.m */,
+				3121E46226204CEF008A7E43 /* UIView+LFView.h */,
+				3121E46326204CEF008A7E43 /* UIView+LFView.m */,
+				3121E34B26202997008A7E43 /* UIImageView+SLFImageView.h */,
+				3121E33F26202997008A7E43 /* UIImageView+SLFImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,13 +578,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3121E3B826202997008A7E43 /* UIImage+CircleImage.m in Sources */,
-				3121E3C426202997008A7E43 /* MyView.m in Sources */,
 				3121E3CB26202997008A7E43 /* MyLocation.m in Sources */,
 				3121E2C1262027D0008A7E43 /* ViewController.m in Sources */,
 				3121E2BB262027D0008A7E43 /* AppDelegate.m in Sources */,
 				3121E3E326202997008A7E43 /* CodeImage.m in Sources */,
 				3121E3B626202997008A7E43 /* MyBaseNavigtionViewController.m in Sources */,
+				3121E45F26204864008A7E43 /* UILabel+LFLabel.m in Sources */,
 				3121E3BD26202997008A7E43 /* SLFEditTableViewCell.m in Sources */,
 				3121E2CC262027D2008A7E43 /* main.m in Sources */,
 				3121E3BC26202997008A7E43 /* MyViewToScroll.m in Sources */,
@@ -593,6 +592,7 @@
 				3121E3CD26202997008A7E43 /* SLFAlert.m in Sources */,
 				3121E3D126202997008A7E43 /* SLFFileManager.m in Sources */,
 				3121E3C626202997008A7E43 /* NewFeatureController.m in Sources */,
+				3121E46426204CEF008A7E43 /* UIView+LFView.m in Sources */,
 				3121E3E026202997008A7E43 /* PhotoSheetView.m in Sources */,
 				3121E3BE26202997008A7E43 /* MyLabel.m in Sources */,
 				3121E3C326202997008A7E43 /* BaseTextField.m in Sources */,

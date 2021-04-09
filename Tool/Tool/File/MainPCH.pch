@@ -50,14 +50,17 @@
 #import "MyTableView.h"
 #import "MyTimeButton.h"
 #import "MyLabel.h"
-#import "UIButton+LF.h"
+
 #import "SLFBaseModel.h"
 #import "SLFAlert.h"
 #import "MyTextView.h"
 #import "BaseTextField.h"
 #import "SLFHUD.h"
 #import "MyLabel.h"
+
 #import "UIColor+LF.h"
+#import "UIButton+LF.h"
+#import "UILabel+LFLabel.h"
 
 #pragma mark - 模型类
 

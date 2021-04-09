@@ -12,13 +12,13 @@
 
 static char onClickBlockKey;
 
-- (void (^)(UIButton * _Nonnull))onClickBlock {
+- (OnClickBlock)onClickBlock {
     return objc_getAssociatedObject(self, &onClickBlockKey);
 }
 
-- (void)setOnClickBlock:(void (^)(UIButton * _Nonnull))onClickBlock {
+- (void)setOnClickBlock:(OnClickBlock)onClickBlock {
     [self addTarget:self action:@selector(onClick:) forControlEvents:(UIControlEventTouchUpInside)];
-    objc_setAssociatedObject(self, &onClickBlockKey, onClickBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &onClickBlockKey, onClickBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)onClick:(UIButton *)btn {
