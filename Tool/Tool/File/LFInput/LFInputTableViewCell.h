@@ -1,19 +1,19 @@
 //
-//  TKInputTableViewCell.h
-//  TaoKe
+//  LFInputTableViewCell.h
+//  
 //
 //  Created by 孙凌锋 on 2020/2/25.
-//  Copyright © 2020 MostOne. All rights reserved.
+//  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 //#import "BaseTextField.h"
-#import "TKInputModel.h"
+#import "LFInputModel.h"
 //#import "FSTextView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /// 我的-修改昵称、密码之类输入
-@interface TKInputTableViewCell : UITableViewCell
+@interface LFInputTableViewCell : UITableViewCell
 
 //@property (nonatomic, retain) UILabel *titleLabel;
 //
@@ -23,31 +23,31 @@ NS_ASSUME_NONNULL_BEGIN
 //
 //@property (nonatomic, retain) UIImageView *rightIV;
 //
-//@property (nonatomic, retain) TKInputModel *model;
+//@property (nonatomic, retain) LFInputModel *model;
 
 
 @end
 ///标题  副标题 箭头
-@interface TKInputItemTableViewCell : UITableViewCell
+@interface LFInputItemTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) UILabel *titleLabel;
 @property (nonatomic, retain) UILabel *subLabel;
 @property (nonatomic, retain) UIImageView *arrowIV;
 
 @property (nonatomic, retain) UIImageView *rightIV;
-@property (nonatomic, retain) TKInputModel *model;
+@property (nonatomic, retain) LFInputModel *model;
 
 @end
 
-//@interface TKInputTitleTableViewCell : TKAngleTableViewCell
+//@interface LFInputTitleTableViewCell : LFAngleTableViewCell
 //@property (nonatomic, retain) UILabel *titleLabel;
-//@property (nonatomic, retain) TKInputModel *model;
+//@property (nonatomic, retain) LFInputModel *model;
 //
 //@end
 //
-//@interface TKInputTextViewTableViewCell : UITableViewCell
+//@interface LFInputTextViewTableViewCell : UITableViewCell
 //@property (nonatomic, retain) FSTextView *textView;
-//@property (nonatomic, retain) TKInputModel *model;
+//@property (nonatomic, retain) LFInputModel *model;
 //
 //@end
 
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, retain) UILabel *titleLabel;
 @property (nonatomic, retain) UISwitch *sh;
-@property (nonatomic, retain) TKInputModel *model;
+@property (nonatomic, retain) LFInputModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

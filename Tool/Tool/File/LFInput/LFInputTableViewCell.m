@@ -1,14 +1,14 @@
 //
-//  TKInputTableViewCell.m
-//  TaoKe
+//  LFInputTableViewCell.m
+//  
 //
 //  Created by 孙凌锋 on 2020/2/25.
-//  Copyright © 2020 MostOne. All rights reserved.
+//  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
-#import "TKInputTableViewCell.h"
+#import "LFInputTableViewCell.h"
 
-@implementation TKInputTableViewCell
+@implementation LFInputTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -75,7 +75,7 @@
 //}
 
 
-//- (void)setModel:(TKInputModel *)model {
+//- (void)setModel:(LFInputModel *)model {
 //    _model = model;
 //
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
@@ -166,7 +166,7 @@
 
 @end
 #pragma mark - 标题  副标题 箭头
-@implementation TKInputItemTableViewCell
+@implementation LFInputItemTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -226,7 +226,7 @@
     return self;
 }
 
-- (void)setModel:(TKInputModel *)model {
+- (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
     self.subLabel.text = model.rightText;
@@ -271,7 +271,7 @@
 
 @end
 
-//@implementation TKInputTitleTableViewCell
+//@implementation LFInputTitleTableViewCell
 //
 //
 //- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -293,7 +293,7 @@
 //
 //
 //
-//- (void)setModel:(TKInputModel *)model {
+//- (void)setModel:(LFInputModel *)model {
 //    _model = model;
 //    
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
@@ -309,7 +309,7 @@
 //}
 //@end
 //
-//@implementation TKInputTextViewTableViewCell
+//@implementation LFInputTextViewTableViewCell
 //
 //
 //- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -338,7 +338,7 @@
 //    return self;
 //}
 //
-//- (void)setModel:(TKInputModel *)model {
+//- (void)setModel:(LFInputModel *)model {
 //    _model = model;
 //    
 //    self.textView.placeholder = _model.placeholder;
@@ -382,7 +382,7 @@
     return self;
 }
 
-- (void)setModel:(TKInputModel *)model {
+- (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
     self.sh.on = model.switchOn;

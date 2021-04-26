@@ -1,33 +1,33 @@
 //
-//  TKInputModel.h
-//  TaoKe
+//  LFInputModel.h
+//  
 //
 //  Created by 孙凌锋 on 2020/2/21.
-//  Copyright © 2020 MostOne. All rights reserved.
+//  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 //#import "BaseTextField.h"
-//#import "TKButton.h"
-//#import "TKInputAngleTableViewCell.h"
+//#import "LFButton.h"
+//#import "LFInputAngleTableViewCell.h"
 //#import "FSTextView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class TKInputAngleTableViewCell;
+@class LFInputAngleTableViewCell;
 
-@interface TKInputModel : NSObject
+@interface LFInputModel : NSObject
 
 /**
 cell的状态
- 0:TKInputAngleTableViewCell 选择
- 1:TKInputAngleTableViewCell 输入
+ 0:LFInputAngleTableViewCell 选择
+ 1:LFInputAngleTableViewCell 输入
  
- 2:TKInputTitleTableViewCell 标题
+ 2:LFInputTitleTableViewCell 标题
  -- 没有圆角 ⬇️--
- 30:TKInputTableViewCell 标题 输入
- 31:TKInputTableViewCell 只有输入 没有标题
- 32:TKInputTableViewCell 有标题 tf不可输入
- 33:TKInputTableViewCell 放获取验证码
+ 30:LFInputTableViewCell 标题 输入
+ 31:LFInputTableViewCell 只有输入 没有标题
+ 32:LFInputTableViewCell 有标题 tf不可输入
+ 33:LFInputTableViewCell 放获取验证码
  
  
  -- textview --
@@ -109,7 +109,7 @@ cell的状态
 
 //@property (nonatomic, copy) void(^selectIDBlock)(NSString *ids);
 
-//@property (nonatomic, copy) void(^onClickBlock)(TKButton *sender);
+//@property (nonatomic, copy) void(^onClickBlock)(LFButton *sender);
 
 
 //@property (assign, nonatomic) BaseTextFieldEnterType enterType;

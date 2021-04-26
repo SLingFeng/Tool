@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3107D7DC26366072002ACD82 /* LFInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107D7D726366072002ACD82 /* LFInputTableViewCell.m */; };
+		3107D7DD26366072002ACD82 /* LFInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107D7D926366072002ACD82 /* LFInputTableViewController.m */; };
+		3107D7DE26366072002ACD82 /* LFInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3107D7DB26366072002ACD82 /* LFInputModel.m */; };
 		3121E2BB262027D0008A7E43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2BA262027D0008A7E43 /* AppDelegate.m */; };
 		3121E2BE262027D0008A7E43 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2BD262027D0008A7E43 /* SceneDelegate.m */; };
 		3121E2C1262027D0008A7E43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2C0262027D0008A7E43 /* ViewController.m */; };
@@ -14,9 +17,6 @@
 		3121E2C6262027D2008A7E43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3121E2C5262027D2008A7E43 /* Assets.xcassets */; };
 		3121E2C9262027D2008A7E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3121E2C7262027D2008A7E43 /* LaunchScreen.storyboard */; };
 		3121E2CC262027D2008A7E43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2CB262027D2008A7E43 /* main.m */; };
-		3121E38E26202997008A7E43 /* TKInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2D626202997008A7E43 /* TKInputModel.m */; };
-		3121E38F26202997008A7E43 /* TKInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2D726202997008A7E43 /* TKInputTableViewController.m */; };
-		3121E39026202997008A7E43 /* TKInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2D826202997008A7E43 /* TKInputTableViewCell.m */; };
 		3121E3B226202997008A7E43 /* MyBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32426202997008A7E43 /* MyBaseCollectionViewController.m */; };
 		3121E3B326202997008A7E43 /* MyBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32526202997008A7E43 /* MyBaseTableViewController.m */; };
 		3121E3B426202997008A7E43 /* MyBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E32626202997008A7E43 /* MyBaseViewController.m */; };
@@ -71,6 +71,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3107D7D626366072002ACD82 /* LFInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFInputTableViewController.h; sourceTree = "<group>"; };
+		3107D7D726366072002ACD82 /* LFInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFInputTableViewCell.m; sourceTree = "<group>"; };
+		3107D7D826366072002ACD82 /* LFInputModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFInputModel.h; sourceTree = "<group>"; };
+		3107D7D926366072002ACD82 /* LFInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFInputTableViewController.m; sourceTree = "<group>"; };
+		3107D7DA26366072002ACD82 /* LFInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFInputTableViewCell.h; sourceTree = "<group>"; };
+		3107D7DB26366072002ACD82 /* LFInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFInputModel.m; sourceTree = "<group>"; };
 		3121E2B6262027D0008A7E43 /* Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3121E2B9262027D0008A7E43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3121E2BA262027D0008A7E43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,12 +89,6 @@
 		3121E2C8262027D2008A7E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3121E2CA262027D2008A7E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3121E2CB262027D2008A7E43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3121E2D526202997008A7E43 /* TKInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInputTableViewCell.h; sourceTree = "<group>"; };
-		3121E2D626202997008A7E43 /* TKInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInputModel.m; sourceTree = "<group>"; };
-		3121E2D726202997008A7E43 /* TKInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInputTableViewController.m; sourceTree = "<group>"; };
-		3121E2D826202997008A7E43 /* TKInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInputTableViewCell.m; sourceTree = "<group>"; };
-		3121E2D926202997008A7E43 /* TKInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInputTableViewController.h; sourceTree = "<group>"; };
-		3121E2DA26202997008A7E43 /* TKInputModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInputModel.h; sourceTree = "<group>"; };
 		3121E32426202997008A7E43 /* MyBaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseCollectionViewController.m; sourceTree = "<group>"; };
 		3121E32526202997008A7E43 /* MyBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseTableViewController.m; sourceTree = "<group>"; };
 		3121E32626202997008A7E43 /* MyBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseViewController.m; sourceTree = "<group>"; };
@@ -217,6 +217,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3107D7D526366072002ACD82 /* LFInput */ = {
+			isa = PBXGroup;
+			children = (
+				3107D7D626366072002ACD82 /* LFInputTableViewController.h */,
+				3107D7D726366072002ACD82 /* LFInputTableViewCell.m */,
+				3107D7D826366072002ACD82 /* LFInputModel.h */,
+				3107D7D926366072002ACD82 /* LFInputTableViewController.m */,
+				3107D7DA26366072002ACD82 /* LFInputTableViewCell.h */,
+				3107D7DB26366072002ACD82 /* LFInputModel.m */,
+			);
+			path = LFInput;
+			sourceTree = "<group>";
+		};
 		3121E2AD262027D0008A7E43 = {
 			isa = PBXGroup;
 			children = (
@@ -257,27 +270,14 @@
 		3121E2D326202997008A7E43 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				3107D7D526366072002ACD82 /* LFInput */,
 				3121E41026202ED9008A7E43 /* Vendors */,
 				3121E3EB26202A54008A7E43 /* APIHeader.pch */,
-				3121E2D426202997008A7E43 /* Input */,
 				3121E32226202997008A7E43 /* MyBase */,
 				3121E34E26202997008A7E43 /* MainPCH.pch */,
 				3121E34F26202997008A7E43 /* Customize */,
 			);
 			path = File;
-			sourceTree = "<group>";
-		};
-		3121E2D426202997008A7E43 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				3121E2D526202997008A7E43 /* TKInputTableViewCell.h */,
-				3121E2D626202997008A7E43 /* TKInputModel.m */,
-				3121E2D726202997008A7E43 /* TKInputTableViewController.m */,
-				3121E2D826202997008A7E43 /* TKInputTableViewCell.m */,
-				3121E2D926202997008A7E43 /* TKInputTableViewController.h */,
-				3121E2DA26202997008A7E43 /* TKInputModel.h */,
-			);
-			path = Input;
 			sourceTree = "<group>";
 		};
 		3121E32226202997008A7E43 /* MyBase */ = {
@@ -578,10 +578,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3107D7DD26366072002ACD82 /* LFInputTableViewController.m in Sources */,
 				3121E3CB26202997008A7E43 /* MyLocation.m in Sources */,
 				3121E2C1262027D0008A7E43 /* ViewController.m in Sources */,
 				3121E2BB262027D0008A7E43 /* AppDelegate.m in Sources */,
 				3121E3E326202997008A7E43 /* CodeImage.m in Sources */,
+				3107D7DE26366072002ACD82 /* LFInputModel.m in Sources */,
 				3121E3B626202997008A7E43 /* MyBaseNavigtionViewController.m in Sources */,
 				3121E45F26204864008A7E43 /* UILabel+LFLabel.m in Sources */,
 				3121E3BD26202997008A7E43 /* SLFEditTableViewCell.m in Sources */,
@@ -597,19 +599,16 @@
 				3121E3BE26202997008A7E43 /* MyLabel.m in Sources */,
 				3121E3C326202997008A7E43 /* BaseTextField.m in Sources */,
 				3121E3BF26202997008A7E43 /* MyTimeButton.m in Sources */,
-				3121E38F26202997008A7E43 /* TKInputTableViewController.m in Sources */,
 				3121E3B726202997008A7E43 /* SLFBaseModel.m in Sources */,
 				3121E41426202ED9008A7E43 /* GVUserDefaults.m in Sources */,
 				3121E3B926202997008A7E43 /* MyCollectionView.m in Sources */,
 				3121E3E226202997008A7E43 /* RegisterAgreementView.m in Sources */,
 				3121E3CC26202997008A7E43 /* GVUserDefaults+SLFUserInfo.m in Sources */,
-				3121E38E26202997008A7E43 /* TKInputModel.m in Sources */,
 				3121E3E126202997008A7E43 /* CollectSratView.m in Sources */,
 				3121E3DA26202997008A7E43 /* MineTableViewCell.m in Sources */,
 				3121E3DB26202997008A7E43 /* ThemeButton.m in Sources */,
 				3121E3DF26202997008A7E43 /* StatusLabelView.m in Sources */,
 				3121E3B326202997008A7E43 /* MyBaseTableViewController.m in Sources */,
-				3121E39026202997008A7E43 /* TKInputTableViewCell.m in Sources */,
 				3121E3B526202997008A7E43 /* SLF_MainTabBarConfig.m in Sources */,
 				3121E3B426202997008A7E43 /* MyBaseViewController.m in Sources */,
 				3121E45726203D91008A7E43 /* UIButton+LF.m in Sources */,
@@ -631,6 +630,7 @@
 				3121E41B26203317008A7E43 /* UIColor+LF.m in Sources */,
 				3121E3D626202997008A7E43 /* UIView+ViewController.m in Sources */,
 				3121E3DD26202997008A7E43 /* LabelView.m in Sources */,
+				3107D7DC26366072002ACD82 /* LFInputTableViewCell.m in Sources */,
 				3121E3BA26202997008A7E43 /* MyTableView.m in Sources */,
 				3121E3C026202997008A7E43 /* MyTextView.m in Sources */,
 				3121E3C926202997008A7E43 /* SLFHUD.m in Sources */,

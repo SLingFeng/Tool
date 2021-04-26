@@ -1,14 +1,14 @@
 //
-//  TKInputModel.m
-//  TaoKe
+//  LFInputModel.m
+//
 //
 //  Created by 孙凌锋 on 2020/2/21.
-//  Copyright © 2020 MostOne. All rights reserved.
+//  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
-#import "TKInputModel.h"
+#import "LFInputModel.h"
 
-@implementation TKInputModel
+@implementation LFInputModel
 
 - (instancetype)init
 {

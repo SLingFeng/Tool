@@ -1,18 +1,18 @@
 //
-//  TKInputTableViewController.m
-//  TaoKe
+//  LFInputTableViewController.m
+//
 //
 //  Created by 孙凌锋 on 2020/2/24.
-//  Copyright © 2020 MostOne. All rights reserved.
+//  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
-#import "TKInputTableViewController.h"
+#import "LFInputTableViewController.h"
 
-@interface TKInputTableViewController ()
+@interface LFInputTableViewController ()
 
 @end
 
-@implementation TKInputTableViewController
+@implementation LFInputTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +60,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TKInputModel *model = self.modelArr[indexPath.section][indexPath.row];
+    LFInputModel *model = self.modelArr[indexPath.section][indexPath.row];
     return model.cellHeight;
 }
 
@@ -68,14 +68,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
-    TKInputModel * model = self.modelArr[indexPath.section][indexPath.row];
+    LFInputModel * model = self.modelArr[indexPath.section][indexPath.row];
     if (model.cellDidClick) {
         model.cellDidClick([tableView cellForRowAtIndexPath:indexPath]);
     }
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    TKInputModel * model = self.modelArr[indexPath.section][indexPath.row];
+    LFInputModel * model = self.modelArr[indexPath.section][indexPath.row];
     if (model.cellDidClick) {
         return 1;
     }
@@ -85,14 +85,14 @@
 //组头文字提示
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (self.modelArr.count > section) {
-        TKInputModel *model = [self.modelArr[section] firstObject];
+        LFInputModel *model = [self.modelArr[section] firstObject];
         return model.titleForHeaderInSection;
     }
     return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    TKInputModel *model = [self.modelArr[section] firstObject];
+    LFInputModel *model = [self.modelArr[section] firstObject];
     if (kStringIsEmpty(model.titleForHeaderInSection)) {
         return 0;
     }
@@ -101,7 +101,7 @@
 
 @end
 
-//@implementation TKInputBtnViewController
+//@implementation LFInputBtnViewController
 //
 //- (void)setUI {
 //    [super setUI];
@@ -115,11 +115,11 @@
 //    self.tableView.separatorInset = UIEdgeInsetsMake(0, 16, 0, 16);
 //
 //
-//    [self.tableView registerClass:[TKInputTableViewCell class] forCellReuseIdentifier:@"TKInputTableViewCell"];
+//    [self.tableView registerClass:[LFInputTableViewCell class] forCellReuseIdentifier:@"LFInputTableViewCell"];
 //    
 //    UIView *view = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, SCREEN_WIDTH, 66))];
 //
-//    self.doneBtn = [[TKGradientButton alloc] initWithFontSize:17 fontColor:[UIColor whiteColor] fontText:@"提交"];
+//    self.doneBtn = [[LFGradientButton alloc] initWithFontSize:17 fontColor:[UIColor whiteColor] fontText:@"提交"];
 //    [view addSubview:self.doneBtn];
 //    ViewRadius(self.doneBtn, 23);
 //    [self.doneBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,8 +135,8 @@
 //
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    
-//    TKInputTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TKInputTableViewCell"];
-//    TKInputModel * model = self.modelArr[indexPath.section][indexPath.row];
+//    LFInputTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputTableViewCell"];
+//    LFInputModel * model = self.modelArr[indexPath.section][indexPath.row];
 //    
 //    cell.model = model;
 //    
