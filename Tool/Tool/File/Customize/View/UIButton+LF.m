@@ -34,7 +34,7 @@ static char onClickBlockKey;
 #pragma mark - 设置
 - (instancetype)setWithFontSize:(NSInteger)fontSize fontColor:(UIColor *)color {
     [self setTitleColor:color forState:(UIControlStateNormal)];
-    self.titleLabel.font = [SLFCommonTools pxFont:fontSize];
+    self.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     
     //        [self setupButton];
     return self;
@@ -42,7 +42,7 @@ static char onClickBlockKey;
 
 - (instancetype)setWithFontSize:(NSInteger)fontSize fontColor:(UIColor *)color text:(NSString *)text {
     [self setTitleColor:color forState:(UIControlStateNormal)];
-    self.titleLabel.font = [SLFCommonTools pxFont:fontSize];
+    self.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     
     //        [self setupButton];
     return self;
@@ -50,7 +50,7 @@ static char onClickBlockKey;
 
 - (instancetype)setWithFontSize:(NSInteger)fontSize fontColor:(UIColor *)color text:(NSString *)text backg:(UIColor *)backg radius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth {
     [self setTitleColor:color forState:(UIControlStateNormal)];
-    self.titleLabel.font = [SLFCommonTools pxFont:fontSize];
+    self.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     [self setTitle:text forState:UIControlStateNormal];
     
     [self setBackgroundColor:backg];
@@ -65,7 +65,7 @@ static char onClickBlockKey;
 
 - (void)setBtnWithFontSize:(NSInteger)fontSize fontColor:(UIColor *)color backg:(UIColor *)backg {
     [self setTitleColor:color forState:(UIControlStateNormal)];
-    self.titleLabel.font = [SLFCommonTools pxFont:fontSize];
+    self.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     [self setBackgroundColor:backg];
 }
 
@@ -116,6 +116,15 @@ static char onClickBlockKey;
 
 {
     
+    [self layoutButtonWithEdgeInsetsStyle:style imageTitleSpace:space size:CGSizeZero];
+    
+}
+- (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style
+
+                        imageTitleSpace:(CGFloat)space size:(CGSize)size
+
+{
+    
     //    self.backgroundColor = [UIColor cyanColor];
     
     /**
@@ -133,6 +142,11 @@ static char onClickBlockKey;
     CGFloat imageWith = [UIDevice currentDevice].systemVersion.floatValue >= 8.0?self.imageView.intrinsicContentSize.width:self.imageView.frame.size.width;
     
     CGFloat imageHeight = [UIDevice currentDevice].systemVersion.floatValue >= 8.0?self.imageView.intrinsicContentSize.height:self.imageView.frame.size.height;
+    
+    if (!CGSizeEqualToSize(size, CGSizeZero)) {
+        imageWith = size.width;
+        imageHeight = size.height;
+    }
     
     CGFloat labelWidth = 0.0;
     
@@ -225,10 +239,5 @@ static char onClickBlockKey;
     self.imageEdgeInsets = imageEdgeInsets;
     
 }
-
-//作者：用心在飞
-//链接：https://www.jianshu.com/p/12bc4414a0b7
-//來源：简书
-//简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 @end

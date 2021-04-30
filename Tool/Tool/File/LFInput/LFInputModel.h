@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "BaseTextField.h"
+#import "BaseTextField.h"
 //#import "LFButton.h"
 //#import "LFInputAngleTableViewCell.h"
 //#import "FSTextView.h"
+#import <Masonry/Masonry.h>
+#import "UIColor+Extension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class LFInputAngleTableViewCell;
@@ -38,6 +40,10 @@ cell的状态
  //我的-设置
  5
  
+ 6: LFInputItemTableViewCell
+ 
+ 7: InputSwitchTableViewCell
+ 
  */
 
 #pragma mark - 通用
@@ -55,27 +61,30 @@ cell的状态
 
 #pragma mark - 输入cell
 
-//
-//@property (nonatomic, copy) NSString *placeholder;
-//
-//
-//@property (nonatomic, copy) void(^textFieldChange)(BaseTextField *tf);
-////用户输入文字保存起来
-//@property (nonatomic, copy) NSString *userEnterText;
-//
-//@property (assign, nonatomic) NSInteger enterNumber;
-//
-//@property (nonatomic) UIKeyboardType keyboardType;
-//
-//@property(nonatomic) NSTextAlignment tfTextAlignment;
-//
-//
-//
+
+@property (nonatomic, copy) NSString *placeholder;
+
+@property (nonatomic, copy) void(^textFieldDone)(UITextField *tf);
+
+@property (nonatomic, copy) void(^textFieldChange)(UITextField *tf);
+//用户输入文字保存起来
+@property (nonatomic, copy) NSString *userEnterText;
+
+@property (assign, nonatomic) NSInteger enterNumber;
+
+@property (nonatomic) UIKeyboardType keyboardType;
+
+@property(nonatomic) NSTextAlignment tfTextAlignment;
+
+
+
 //@property (nonatomic, retain) FSTextView *textView;
 
 #pragma mark - 群设置
 //no关 yes开
 @property (nonatomic, assign) BOOL switchOn;
+
+@property (nonatomic, retain) UISwitch * sh;
 
 #pragma mark - 我的-设置
 
@@ -96,7 +105,7 @@ cell的状态
 @property (nonatomic, retain) UIView *customView;
 
 #pragma mark -
-//@property (nonatomic, assign) BOOL rightIVHidden;
+@property (nonatomic, assign) BOOL rightIVHidden;
 ///只显示右边图片
 @property (nonatomic, copy) NSString *leftImageName;
 ///CGSizeMake(15, 15)

@@ -67,6 +67,7 @@
 		3121E45726203D91008A7E43 /* UIButton+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45626203D91008A7E43 /* UIButton+LF.m */; };
 		3121E45F26204864008A7E43 /* UILabel+LFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45E26204864008A7E43 /* UILabel+LFLabel.m */; };
 		3121E46426204CEF008A7E43 /* UIView+LFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E46326204CEF008A7E43 /* UIView+LFView.m */; };
+		31F0785F26393C500044B397 /* LFTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F0785E26393C500044B397 /* LFTool.m */; };
 		3D48EE8B894A0B0C705B3B4A /* libPods-Tool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,8 @@
 		3121E45E26204864008A7E43 /* UILabel+LFLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LFLabel.m"; sourceTree = "<group>"; };
 		3121E46226204CEF008A7E43 /* UIView+LFView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LFView.h"; sourceTree = "<group>"; };
 		3121E46326204CEF008A7E43 /* UIView+LFView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LFView.m"; sourceTree = "<group>"; };
+		31F0785D26393C500044B397 /* LFTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFTool.h; sourceTree = "<group>"; };
+		31F0785E26393C500044B397 /* LFTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFTool.m; sourceTree = "<group>"; };
 		8053BBD70863C1C0C728464A /* Pods-Tool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.release.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.release.xcconfig"; sourceTree = "<group>"; };
 		E31C81798C00A0794D623A63 /* Pods-Tool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.debug.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.debug.xcconfig"; sourceTree = "<group>"; };
 		F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,12 +223,12 @@
 		3107D7D526366072002ACD82 /* LFInput */ = {
 			isa = PBXGroup;
 			children = (
-				3107D7D626366072002ACD82 /* LFInputTableViewController.h */,
-				3107D7D726366072002ACD82 /* LFInputTableViewCell.m */,
 				3107D7D826366072002ACD82 /* LFInputModel.h */,
-				3107D7D926366072002ACD82 /* LFInputTableViewController.m */,
-				3107D7DA26366072002ACD82 /* LFInputTableViewCell.h */,
 				3107D7DB26366072002ACD82 /* LFInputModel.m */,
+				3107D7DA26366072002ACD82 /* LFInputTableViewCell.h */,
+				3107D7D726366072002ACD82 /* LFInputTableViewCell.m */,
+				3107D7D626366072002ACD82 /* LFInputTableViewController.h */,
+				3107D7D926366072002ACD82 /* LFInputTableViewController.m */,
 			);
 			path = LFInput;
 			sourceTree = "<group>";
@@ -367,24 +370,26 @@
 		3121E35526202997008A7E43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3121E35626202997008A7E43 /* SLFAlert.h */,
 				3121E35726202997008A7E43 /* GVUserDefaults+SLFUserInfo.h */,
+				3121E36126202997008A7E43 /* GVUserDefaults+SLFUserInfo.m */,
+				31F0785D26393C500044B397 /* LFTool.h */,
+				31F0785E26393C500044B397 /* LFTool.m */,
+				3121E36726202997008A7E43 /* MyLocation.h */,
+				3121E35F26202997008A7E43 /* MyLocation.m */,
+				3121E36626202997008A7E43 /* RequestPost.h */,
+				3121E35C26202997008A7E43 /* RequestPost.m */,
+				3121E35626202997008A7E43 /* SLFAlert.h */,
+				3121E36226202997008A7E43 /* SLFAlert.m */,
+				3121E36026202997008A7E43 /* SLFCommonTools.h */,
 				3121E35826202997008A7E43 /* SLFCommonTools.m */,
-				3121E35926202997008A7E43 /* SLFTransition.h */,
+				3121E35E26202997008A7E43 /* SLFFileManager.h */,
+				3121E36826202997008A7E43 /* SLFFileManager.m */,
 				3121E35A26202997008A7E43 /* SLFHUD.h */,
 				3121E35B26202997008A7E43 /* SLFHUD.m */,
-				3121E35C26202997008A7E43 /* RequestPost.m */,
-				3121E35D26202997008A7E43 /* UIImage+MyImage.h */,
-				3121E35E26202997008A7E43 /* SLFFileManager.h */,
-				3121E35F26202997008A7E43 /* MyLocation.m */,
-				3121E36026202997008A7E43 /* SLFCommonTools.h */,
-				3121E36126202997008A7E43 /* GVUserDefaults+SLFUserInfo.m */,
-				3121E36226202997008A7E43 /* SLFAlert.m */,
+				3121E35926202997008A7E43 /* SLFTransition.h */,
 				3121E36426202997008A7E43 /* SLFTransition.m */,
+				3121E35D26202997008A7E43 /* UIImage+MyImage.h */,
 				3121E36526202997008A7E43 /* UIImage+MyImage.m */,
-				3121E36626202997008A7E43 /* RequestPost.h */,
-				3121E36726202997008A7E43 /* MyLocation.h */,
-				3121E36826202997008A7E43 /* SLFFileManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 				3121E3E126202997008A7E43 /* CollectSratView.m in Sources */,
 				3121E3DA26202997008A7E43 /* MineTableViewCell.m in Sources */,
 				3121E3DB26202997008A7E43 /* ThemeButton.m in Sources */,
+				31F0785F26393C500044B397 /* LFTool.m in Sources */,
 				3121E3DF26202997008A7E43 /* StatusLabelView.m in Sources */,
 				3121E3B326202997008A7E43 /* MyBaseTableViewController.m in Sources */,
 				3121E3B526202997008A7E43 /* SLF_MainTabBarConfig.m in Sources */,

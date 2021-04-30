@@ -8,6 +8,57 @@
 
 #import "LFInputTableViewController.h"
 
+@implementation LFBaseTableViewController
+
+- (void)setUI:(UITableViewStyle)style {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(style)];
+    [self.view addSubview:_tableView];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.backgroundColor = assist_viewBg_color;
+    self.tableView.backgroundColor = [UIColor colorWithString:@"#F8F9FB"];
+    self.tableView.separatorStyle = 1;
+    [self.tableView setSeparatorColor:HEX_RGB(0xebebeb)];
+
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    
+//    if (@available(iOS 11.0, *)) {
+//        self.tableView.estimatedSectionHeaderHeight = 0.01;
+//        self.tableView.estimatedSectionFooterHeight = 0.01;
+//    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.001;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [[UIView alloc] init];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] init];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+@end
+
+#pragma mark - LFInputTableViewController
 @interface LFInputTableViewController ()
 
 @end
@@ -21,20 +72,24 @@
     
 }
 
-- (void)setUI {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(UITableViewStylePlain)];
-    [self.view addSubview:_tableView];
+- (void)setUI:(UITableViewStyle)style {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:(style)];
+    [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    self.tableView.backgroundColor = assist_viewBg_color;
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    [self.tableView registerClass:[LFInputTableViewCell class] forCellReuseIdentifier:@"LFInputTableViewCell"];
+    [self.tableView registerClass:[LFInputItemTableViewCell class] forCellReuseIdentifier:@"LFInputItemTableViewCell"];
+    [self.tableView registerClass:[InputSwitchTableViewCell class] forCellReuseIdentifier:@"InputSwitchTableViewCell"];
+    [self.tableView registerClass:[LFInputCenterTableViewCell class] forCellReuseIdentifier:@"LFInputCenterTableViewCell"];
+    
 //    if (@available(iOS 11.0, *)) {
 //        self.tableView.estimatedSectionHeaderHeight = 0.01;
 //        self.tableView.estimatedSectionFooterHeight = 0.01;
@@ -51,10 +106,27 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"UITableViewCell"];
-//    }
+    LFInputModel *model = self.modelArr[indexPath.section][indexPath.row];
+
+    if (model.type == 6) {
+        LFInputItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputItemTableViewCell"];
+
+        cell.model = model;
+        return cell;
+    }else if (model.type == 7) {
+        InputSwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InputSwitchTableViewCell"];
+
+        cell.model = model;
+        return cell;
+    }else if (model.type == 8) {
+        LFInputCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputCenterTableViewCell"];
+
+        cell.model = model;
+        return cell;
+    }
+    LFInputTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputTableViewCell"];
+
+    cell.model = model;
     return cell;
 }
 
@@ -93,7 +165,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     LFInputModel *model = [self.modelArr[section] firstObject];
-    if (kStringIsEmpty(model.titleForHeaderInSection)) {
+    if (model.titleForHeaderInSection == nil || [model.titleForHeaderInSection isEqualToString:@""]) {
         return 0;
     }
     return model.heightForHeaderInSection;
@@ -165,3 +237,5 @@
 //}
 //
 //@end
+
+

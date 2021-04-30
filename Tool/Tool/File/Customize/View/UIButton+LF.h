@@ -53,6 +53,8 @@ MKButtonEdgeInsetsStyleRight // image在右，label在左
 
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style imageTitleSpace:(CGFloat)space;
 
+- (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style imageTitleSpace:(CGFloat)space size:(CGSize)size;
+
 @end
 
 NS_ASSUME_NONNULL_END

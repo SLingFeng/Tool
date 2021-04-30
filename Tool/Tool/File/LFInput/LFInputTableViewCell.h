@@ -15,15 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 我的-修改昵称、密码之类输入
 @interface LFInputTableViewCell : UITableViewCell
 
-//@property (nonatomic, retain) UILabel *titleLabel;
-//
-//@property (nonatomic, retain) BaseTextField *tf;
-//
-//@property (nonatomic, retain) UIView *line;
-//
-//@property (nonatomic, retain) UIImageView *rightIV;
-//
-//@property (nonatomic, retain) LFInputModel *model;
+@property (nonatomic, retain) UILabel *titleLabel;
+
+@property (nonatomic, retain) BaseTextField *tf;
+
+@property (nonatomic, retain) UIView *line;
+
+@property (nonatomic, retain) UIImageView *rightIV;
+
+@property (nonatomic, retain) LFInputModel *model;
 
 
 @end
@@ -57,5 +57,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, retain) UISwitch *sh;
 @property (nonatomic, retain) LFInputModel *model;
 @end
+
+///标题 剧中
+@interface LFInputCenterTableViewCell : UITableViewCell
+
+@property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, retain) LFInputModel *model;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

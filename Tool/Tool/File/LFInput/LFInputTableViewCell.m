@@ -20,148 +20,151 @@
     
     // Configure the view for the selected state
 }
-//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-//    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//
-//
-//        self.titleLabel = [[[UILabel alloc] init] fontSize:16 fontColor:main_text_color setText:@"标题"];
-//        [self.contentView addSubview:self.titleLabel];
-//        self.titleLabel.textAlignment = NSTextAlignmentJustified;
-//
-//
-//        self.tf = [[BaseTextField alloc] init];
-//        [self.contentView addSubview:self.tf];
-//        self.tf.font = [UIFont systemFontOfSize:16];
-//        self.tf.textColor = main_text_color;
-//
-//        self.line = [[UIView alloc] init];
-//        self.line.backgroundColor = assist_line_color;
-//        [self addSubview:self.line];
-//        self.line.hidden = 1;
-//
-//        self.rightIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_arrow"]];
-//        [self addSubview:self.rightIV];
-//        self.rightIV.hidden = 1;
-//
-//        [self.rightIV mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.size.mas_equalTo(CGSizeMake(15, 15));
-//            make.right.equalTo(self.contentView.mas_right).offset(-16);
-//            make.centerY.equalTo(self.contentView);
-//
-//        }];
-//
-//
-//        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerY.equalTo(self.contentView);
-//            make.left.offset(16);
-//            make.width.lessThanOrEqualTo(@(34)).priority(998);
-//            make.width.greaterThanOrEqualTo(@(70));
-//        }];
-//
-//        [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityMedium();
-//            make.top.bottom.offset(0);
-//            make.right.equalTo(self.contentView).offset(-16);
-//        }];
-//
-//        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.offset(10);
-//            make.right.offset(-10);
-//            make.height.mas_equalTo(0.5);
-//            make.bottom.offset(0);
-//        }];
-//    }
-//    return self;
-//}
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 
 
-//- (void)setModel:(LFInputModel *)model {
-//    _model = model;
-//
+        self.titleLabel = [[UILabel alloc] init];
+        [self.contentView addSubview:self.titleLabel];
+        self.titleLabel.textAlignment = NSTextAlignmentJustified;
+        self.titleLabel.textColor = UIColor.text33Color;
+
+        self.tf = [[BaseTextField alloc] init];
+        [self.contentView addSubview:self.tf];
+        self.tf.font = [UIFont systemFontOfSize:16];
+        self.tf.textColor = UIColor.text33Color;
+
+        self.line = [[UIView alloc] init];
+        self.line.backgroundColor = kF5F5F5;
+        [self addSubview:self.line];
+        self.line.hidden = 1;
+
+        self.rightIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_arrow"]];
+        [self addSubview:self.rightIV];
+        self.rightIV.hidden = 1;
+
+        [self.rightIV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(15, 15));
+            make.right.equalTo(self.contentView.mas_right).offset(-16);
+            make.centerY.equalTo(self.contentView);
+
+        }];
+
+
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.contentView);
+            make.left.offset(16);
+            make.width.lessThanOrEqualTo(@(34)).priority(998);
+            make.width.greaterThanOrEqualTo(@(70));
+        }];
+
+        [self.tf mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityMedium();
+            make.top.bottom.offset(0);
+            make.right.equalTo(self.contentView).offset(-16);
+        }];
+
+        [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(10);
+            make.right.offset(-10);
+            make.height.mas_equalTo(0.5);
+            make.bottom.offset(0);
+        }];
+    }
+    return self;
+}
+
+
+- (void)setModel:(LFInputModel *)model {
+    _model = model;
+
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
 //                             //                             @"font2" : [SLFCommonTools pxFont:30],
 //                             @"color" : [UIColor grayColor],
-//                             @"plColor" : [UIColor colorWithHexString:@"AFB2B9"],
+//                             @"plColor" : [UIColor colorWithString:@"AFB2B9"],
 //                             //                             @"color3" : HEXCOLOR(0xFF0000)
 //
 //    };
 //    self.tf.attributedPlaceholder = [model.placeholder attributedStringWithStyleBook:style];
-//
-//    self.tf.textFieldChange = model.textFieldChange;
-//    self.tf.keyboardType = model.keyboardType;
+    self.tf.placeholder = model.placeholder;
+    self.tf.returnKeyClick = model.textFieldDone;
+    self.tf.textFieldChange = model.textFieldChange;
+    self.tf.keyboardType = model.keyboardType;
 //    self.tf.enterNumber = model.enterNumber;
-//    self.tf.userInteractionEnabled = 1;
-//
+    self.tf.userInteractionEnabled = 1;
+
 //    self.titleLabel.attributedText = [model.title attributedStringWithStyleBook:style];
-//
-//    [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
-//        if (model.type == 31) {
-//            make.left.equalTo(self.contentView).offset(16);
-//        }else {
-//            make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityMedium();
-//        }
-//    }];
-//
-//    self.tf.textAlignment = _model.tfTextAlignment;
-//
-//    if (model.type == 30) {
-//        self.titleLabel.hidden = 0;
-//    }else if (model.type == 31) {
-//        self.titleLabel.attributedText = nil;
-//        self.titleLabel.hidden = 1;
-//    }else if (model.type == 33) {
-//
-//
-//        if (_model.codeView) {
-//            [self.contentView addSubview:model.codeView];
-//
-//            [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.right.equalTo(self.contentView).offset(-(model.codeView.frame.size.width + 16 + 10));
-//
-//            }];
-//
-//            [model.codeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.right.offset(-16);
-//                make.centerY.equalTo(self.contentView);
-//                make.size.mas_equalTo(model.codeView.frame.size);
-//            }];
-//        }
-//    }
-//
-//
-//    self.rightIV.hidden = _model.rightIVHidden;
-//    if (_model.rightSpace > 0) {
-//        [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.right.equalTo(self.contentView.mas_right).offset(-model.rightSpace);
-//        }];
-//    }
-//
-//    if (!kStringIsEmpty(model.userEnterText)) {
-//        self.tf.text = model.userEnterText;
-//    }else {
-//        self.tf.text = nil;
-//    }
-//
-//    if (model.maxLeftSpace > 0) {
-//        [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.contentView).offset(model.maxLeftSpace);
-//        }];
-//
-//        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.centerY.equalTo(self.contentView);
-//            make.left.offset(16);
-//        }];
-//
-//    }else {
-//        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.centerY.equalTo(self.contentView);
-//            make.left.offset(16);
-//            make.width.lessThanOrEqualTo(@(34)).priority(998);
-//            make.width.greaterThanOrEqualTo(@(70));
-//        }];
-//
-//    }
-//}
+    self.titleLabel.text = model.title;
+
+    
+    [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
+        if (model.type == 31) {
+            make.left.equalTo(self.contentView).offset(16);
+        }else {
+            make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityMedium();
+        }
+    }];
+
+    self.tf.textAlignment = _model.tfTextAlignment;
+
+    if (model.type == 30) {
+        self.titleLabel.hidden = 0;
+    }else if (model.type == 31) {
+        self.titleLabel.attributedText = nil;
+        self.titleLabel.hidden = 1;
+    }else if (model.type == 33) {
+
+
+        if (_model.codeView) {
+            [self.contentView addSubview:model.codeView];
+
+            [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.contentView).offset(-(model.codeView.frame.size.width + 16 + 10));
+
+            }];
+
+            [model.codeView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.offset(-16);
+                make.centerY.equalTo(self.contentView);
+                make.size.mas_equalTo(model.codeView.frame.size);
+            }];
+        }
+    }
+
+
+    self.rightIV.hidden = _model.rightIVHidden;
+    if (_model.rightSpace > 0) {
+        [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.contentView.mas_right).offset(-model.rightSpace);
+        }];
+    }
+
+    if (model.userEnterText != nil || ![model.userEnterText isEqualToString:@""]) {
+        self.tf.text = model.userEnterText;
+    }else {
+        self.tf.text = nil;
+    }
+
+    if (model.maxLeftSpace > 0) {
+        [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(model.maxLeftSpace);
+        }];
+
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.contentView);
+            make.left.offset(16);
+        }];
+
+    }else {
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.contentView);
+            make.left.offset(16);
+            make.width.lessThanOrEqualTo(@(34)).priority(998);
+            make.width.greaterThanOrEqualTo(@(70));
+        }];
+
+    }
+}
 
 
 @end
@@ -175,13 +178,13 @@
 //        [self.contentView addSubview:self.leftIV];
         
         self.titleLabel = [[UILabel alloc] init];
-        self.titleLabel.textColor = UIColor.blackColor;
-        self.titleLabel.font = [UIFont systemFontOfSize:(16)];
+        self.titleLabel.textColor = UIColor.text33Color;
+//        self.titleLabel.font = [UIFont systemFontOfSize:(16)];
         [self.contentView addSubview:self.titleLabel];
         
         self.subLabel = [[UILabel alloc] init];
-        self.subLabel.textColor = [UIColor text66Color];
-        self.subLabel.font = [UIFont systemFontOfSize:(15)];
+        self.subLabel.textColor = [UIColor text99Color];
+//        self.subLabel.font = [UIFont systemFontOfSize:(15)];
         [self.contentView addSubview:self.subLabel];
         self.subLabel.textAlignment = 2;
         self.subLabel.numberOfLines = 2;
@@ -189,7 +192,7 @@
         self.rightIV = [[UIImageView alloc] init];
         [self.contentView addSubview:self.rightIV];
         
-        self.arrowIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_d"]];
+        self.arrowIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_arrow"]];
         [self.contentView addSubview:self.arrowIV];
         
 //        [self.leftIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -217,7 +220,7 @@
         }];
         
         [self.arrowIV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(7, 10.6));
+            make.size.mas_equalTo(CGSizeMake(15, 25));
             make.right.offset(-15);
             make.centerY.offset(0);
         }];
@@ -249,7 +252,7 @@
         }];
     }
     
-    if (kStringIsEmpty(_model.leftImageName)) {
+    if (_model.leftImageName == nil || [_model.leftImageName isEqualToString:@""]) {
         self.rightIV.hidden = 1;
         self.subLabel.hidden = 0;
     }else {
@@ -364,7 +367,7 @@
         self.sh = [[UISwitch alloc] init];
         [self.contentView addSubview:self.sh];
         [self.sh addTarget:self action:@selector(switchClick:) forControlEvents:(UIControlEventValueChanged)];
-        self.sh.onTintColor = [UIColor colorHex:@"22aec1"];
+        self.sh.onTintColor = [UIColor colorWithString:@"22aec1"];
         
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.equalTo(self.leftIV.mas_right).offset(11);
@@ -386,6 +389,7 @@
     _model = model;
     self.titleLabel.text = model.title;
     self.sh.on = model.switchOn;
+    model.sh = self.sh;
     
 //    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.width.mas_equalTo([self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)]);
@@ -409,4 +413,34 @@
     }
 }
 
+@end
+
+@implementation LFInputCenterTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+//        self.leftIV = [[UIImageView alloc] init];
+//        [self.contentView addSubview:self.leftIV];
+        
+        self.titleLabel = [[UILabel alloc] init];
+        self.titleLabel.textColor = UIColor.redColor;
+        self.titleLabel.font = [UIFont systemFontOfSize:(15)];
+        [self.contentView addSubview:self.titleLabel];
+
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.leftIV.mas_right).offset(11);
+//            make.left.offset(15);
+            make.center.offset(0);
+            
+        }];
+    }
+    return self;
+}
+        
+- (void)setModel:(LFInputModel *)model {
+    _model = model;
+    self.titleLabel.text = model.title;
+    
+}
 @end

@@ -5,7 +5,15 @@
 //
 
 #import "SLFAlert.h"
+#import <Masonry/Masonry.h>
+#import "UIButton+LF.h"
 
+#define kWEAKSELF(weakSelf) __weak __typeof(&*self) weakSelf = self
+#define kWEAKOBJ(weakObj, _obj) __weak __typeof(&*_obj) weakObj = _obj
+#define kMainSpace 0
+
+#define SLFALAERTLEFTTEXTCOLOR [UIColor colorWithString:@"#1384FF"]
+#define SLFALAERTRIGHTTEXTCOLOR [UIColor colorWithString:@"#1384FF"]
 
 @interface SLFAlert ()
 {
@@ -49,7 +57,7 @@ static SLFAlert * instance = nil;
 
 +(void)showSystemAlertWithVC:(UIViewController *)weakSelf title:(NSString *)title text:(NSString *)text determineTitle:(NSString *)determine cancelTitle:(NSString *)cancelTitle cancel:(BOOL)cancel alertClick:(alertClick)alertClick {
     {
-        UIViewController *vc = weakSelf==nil?[SLFCommonTools currentViewController]:weakSelf;
+        UIViewController *vc = weakSelf==nil?[SLFAlert currentViewController]:weakSelf;
         
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:(UIAlertControllerStyleAlert)];
         
@@ -81,7 +89,7 @@ static SLFAlert * instance = nil;
 
 +(void)showSystemActionSheetWithVC:(UIViewController *)weakSelf title:(NSString *)title text:(NSString *)text determineTitle:(NSString *)determine cancelTitle:(NSString *)cancelTitle cancel:(BOOL)cancel alertClick:(alertClick)alertClick {
     
-    UIViewController *vc = weakSelf==nil?[SLFCommonTools currentViewController]:weakSelf;
+    UIViewController *vc = weakSelf==nil?[SLFAlert currentViewController]:weakSelf;
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:(UIAlertControllerStyleActionSheet)];
     if (cancel) {
@@ -120,7 +128,7 @@ static SLFAlert * instance = nil;
         }
     }]];
 
-    [[SLFCommonTools currentViewController] presentViewController:alertController animated:YES completion:nil];
+    [[SLFAlert currentViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
 +(void)setupTextFont:(NSString *)title text:(NSString *)text ac:(UIAlertController *)alertController {
@@ -147,7 +155,7 @@ static SLFAlert * instance = nil;
 
 + (void)alertTextFView:(UIViewController *)ws title:(NSString *)title text:(NSString *)text determineTitle:(NSString *)determine cancelTitle:(NSString *)cancelTitle placeholder:(NSString *)placeholder alertClick:(alertClickText)alertClick {
     if (ws == nil) {
-        ws = [SLFCommonTools currentViewController];
+        ws = [SLFAlert currentViewController];
     }
     [SLFAlert shareSLFAlert].text = nil;
     
@@ -202,11 +210,11 @@ static SLFAlert * instance = nil;
 - (instancetype)initWithTitle:(NSString *)title leftTitle:(NSString *)leftTitle rightTitle:(NSString *)rightTitle change:(BOOL)change block:(alertClickIndex)block {
     if (self = [super init]) {
 
-        _backgroundView = [[UIView alloc] initWithFrame:kScreen];
+        _backgroundView = [[UIView alloc] initWithFrame:([UIScreen mainScreen].bounds)];
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
 
-        UIView * b = [[UIView alloc] initWithFrame:kScreen];
-        b.backgroundColor = [UIColor colorHex:@"000000" alpha:0.6];
+        UIView * b = [[UIView alloc] initWithFrame:([UIScreen mainScreen].bounds)];
+        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
 
         _alertView = [[UIView alloc] init];
@@ -215,14 +223,17 @@ static SLFAlert * instance = nil;
         _alertView.layer.masksToBounds = 1;
         _alertView.layer.cornerRadius = 15;
 
-        UIView *line = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+        UIView *line = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
         [_alertView addSubview:line];
 
         kWEAKOBJ(weakAlert, _alertView);
         kWEAKSELF(weakSelf);
 
-        MyLabel * titleLabel = [[MyLabel alloc] initWithFontSize:(32/2) fontColor:k111111 setText:title];
-        titleLabel.font = [SLFCommonTools pxFont:32];
+        UILabel * titleLabel = [[UILabel alloc] init];
+        titleLabel.textColor = k111111;
+        titleLabel.numberOfLines = 0;
+        [titleLabel setText:title];
+//        titleLabel.font = [UIFont systemFontOfSize:17];
         [_alertView addSubview:titleLabel];
         titleLabel.textAlignment = NSTextAlignmentCenter;
 
@@ -230,8 +241,8 @@ static SLFAlert * instance = nil;
         UIButton * rightBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [_alertView addSubview:rightBtn];
         [rightBtn setTitle:rightTitle forState:(UIControlStateNormal)];
-        [rightBtn setTitleColor:change?k666666:kFF0000 forState:(UIControlStateNormal)];
-        rightBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+        [rightBtn setTitleColor:change?k666666:SLFALAERTRIGHTTEXTCOLOR forState:(UIControlStateNormal)];
+//        rightBtn.titleLabel.font = [UIFont systemFontOfSize:17];
 
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.offset(24);
@@ -247,14 +258,14 @@ static SLFAlert * instance = nil;
 
         if (leftTitle != nil) {
             
-            UIView *lineDash = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+            UIView *lineDash = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
             [_alertView addSubview:lineDash];
             
             UIButton * leftBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
             [_alertView addSubview:leftBtn];
             [leftBtn setTitle:leftTitle forState:(UIControlStateNormal)];
-            [leftBtn setTitleColor:change?kFF0000:k666666 forState:(UIControlStateNormal)];
-            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+            [leftBtn setTitleColor:change?kFF0000:SLFALAERTLEFTTEXTCOLOR forState:(UIControlStateNormal)];
+//            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
 
             [leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(132, 46));
@@ -272,7 +283,7 @@ static SLFAlert * instance = nil;
             [lineDash mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakAlert);
                 make.centerY.equalTo(leftBtn);
-                make.size.mas_equalTo(CGSizeMake(1, 30));
+                make.size.mas_equalTo(CGSizeMake(1, 46));
             }];
         }else {
             [rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -290,13 +301,17 @@ static SLFAlert * instance = nil;
 
         [_alertView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(_backgroundView);
-            make.width.mas_equalTo(264);
+            make.width.mas_equalTo(270);
             make.top.equalTo(titleLabel.mas_top);
             make.bottom.equalTo(rightBtn.mas_bottom);
         }];
 
 
-        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
+//        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
+        
+//        CGRect rect = _alertView.frame;
+//        rect.size.height = rightBtn.frame.size.height;
+//        _alertView.frame = rect;
 
         [rightBtn setOnClickBlock:^(UIButton *sender) {
             [weakSelf cancelTap];
@@ -322,7 +337,7 @@ static SLFAlert * instance = nil;
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
         
         UIView * b = [[UIView alloc] initWithFrame:kScreen];
-        b.backgroundColor = [UIColor colorHex:@"000000" alpha:0.6];
+        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
         
         _alertView = [[UIView alloc] init];
@@ -331,26 +346,36 @@ static SLFAlert * instance = nil;
         _alertView.layer.masksToBounds = 1;
         _alertView.layer.cornerRadius = 15;
         
-        UIView *line = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+        UIView *line = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
         [_alertView addSubview:line];
         
         kWEAKOBJ(weakAlert, _alertView);
         kWEAKSELF(weakSelf);
         
-        MyLabel * titleLabel = [[MyLabel alloc] initWithFontSize:32 fontColor:k111111 setText:title];
-        titleLabel.font = [SLFCommonTools pxFont:32];
+        UILabel * titleLabel = [[UILabel alloc] init];
+        titleLabel.textColor = k111111;
+        titleLabel.numberOfLines = 0;
+        [titleLabel setText:title];
+//        titleLabel.font = [UIFont systemFontOfSize:17];
         [_alertView addSubview:titleLabel];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        MyLabel *subTitleLabel = [[MyLabel alloc] initWithFontSize:28 fontColor:k666666 setText:subTitle];
+        UILabel * subTitleLabel = [[UILabel alloc] init];
+        subTitleLabel.textColor = k666666;
+        subTitleLabel.numberOfLines = 0;
+        [subTitleLabel setText:title];
+        subTitleLabel.font = [UIFont systemFontOfSize:16];
         [_alertView addSubview:subTitleLabel];
         subTitleLabel.textAlignment = NSTextAlignmentCenter;
+//        MyLabel *subTitleLabel = [[MyLabel alloc] initWithFontSize:28 fontColor:k666666 setText:subTitle];
+//        [_alertView addSubview:subTitleLabel];
+//        subTitleLabel.textAlignment = NSTextAlignmentCenter;
         
         UIButton * rightBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [_alertView addSubview:rightBtn];
         [rightBtn setTitle:rightTitle forState:(UIControlStateNormal)];
-        [rightBtn setTitleColor:change?k666666:kFF0000 forState:(UIControlStateNormal)];
-        rightBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+        [rightBtn setTitleColor:change?k666666:SLFALAERTRIGHTTEXTCOLOR forState:(UIControlStateNormal)];
+//        rightBtn.titleLabel.font = [SLFCommonTools pxFont:32];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.offset(24);
@@ -372,14 +397,14 @@ static SLFAlert * instance = nil;
         
         if (leftTitle != nil) {
             
-            UIView *lineDash = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+            UIView *lineDash = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
             [_alertView addSubview:lineDash];
             
             UIButton * leftBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
             [_alertView addSubview:leftBtn];
             [leftBtn setTitle:leftTitle forState:(UIControlStateNormal)];
-            [leftBtn setTitleColor:change?kFF0000:k666666 forState:(UIControlStateNormal)];
-            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+            [leftBtn setTitleColor:change?kFF0000:SLFALAERTLEFTTEXTCOLOR forState:(UIControlStateNormal)];
+//            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
             
             [leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(132, 46));
@@ -421,7 +446,7 @@ static SLFAlert * instance = nil;
         }];
         
         
-        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
+//        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
         
         [rightBtn setOnClickBlock:^(UIButton *sender) {
             [weakSelf cancelTap];
@@ -444,7 +469,7 @@ static SLFAlert * instance = nil;
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
         
         UIView * b = [[UIView alloc] initWithFrame:kScreen];
-        b.backgroundColor = [UIColor colorHex:@"000000" alpha:0.6];
+        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
         
         _alertView = [[UIView alloc] init];
@@ -453,18 +478,33 @@ static SLFAlert * instance = nil;
         _alertView.layer.masksToBounds = 1;
         _alertView.layer.cornerRadius = 15;
         
-        UIView *line = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+        UIView *line = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
         [_alertView addSubview:line];
         
         kWEAKOBJ(weakAlert, _alertView);
         kWEAKSELF(weakSelf);
         
-        MyLabel * titleLabel = [[MyLabel alloc] initWithFontSize:32 fontColor:k111111 setText:title];
-        titleLabel.font = [SLFCommonTools pxFont:32];
+//        MyLabel * titleLabel = [[MyLabel alloc] initWithFontSize:32 fontColor:k111111 setText:title];
+//        titleLabel.font = [SLFCommonTools pxFont:32];
+//        [_alertView addSubview:titleLabel];
+//
+//        MyLabel *subTitleLabel = [[MyLabel alloc] initWithFontSize:28 fontColor:k666666 setText:subTitle];
+//        [_alertView addSubview:subTitleLabel];
+        UILabel * titleLabel = [[UILabel alloc] init];
+        titleLabel.textColor = k111111;
+        titleLabel.numberOfLines = 0;
+        [titleLabel setText:title];
+//        titleLabel.font = [UIFont systemFontOfSize:17];
         [_alertView addSubview:titleLabel];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        MyLabel *subTitleLabel = [[MyLabel alloc] initWithFontSize:28 fontColor:k666666 setText:subTitle];
+        UILabel * subTitleLabel = [[UILabel alloc] init];
+        subTitleLabel.textColor = k666666;
+        subTitleLabel.numberOfLines = 0;
+        [subTitleLabel setText:title];
+        subTitleLabel.font = [UIFont systemFontOfSize:16];
         [_alertView addSubview:subTitleLabel];
+        subTitleLabel.textAlignment = NSTextAlignmentCenter;
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
         [_alertView addSubview:imageView];
@@ -472,8 +512,8 @@ static SLFAlert * instance = nil;
         UIButton * rightBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [_alertView addSubview:rightBtn];
         [rightBtn setTitle:rightTitle forState:(UIControlStateNormal)];
-        [rightBtn setTitleColor:change?k666666:kFF0000 forState:(UIControlStateNormal)];
-        rightBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+        [rightBtn setTitleColor:change?k666666:SLFALAERTRIGHTTEXTCOLOR forState:(UIControlStateNormal)];
+//        rightBtn.titleLabel.font = [SLFCommonTools pxFont:32];
         
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset(kMainSpace);
@@ -501,14 +541,14 @@ static SLFAlert * instance = nil;
         
         if (leftTitle != nil) {
             
-            UIView *lineDash = [SLFCommonTools lineViewToHight:0.5 spaceForRightAndLetf:0];
+            UIView *lineDash = [SLFAlert lineViewToHight:0.5 spaceForRightAndLetf:0];
             [_alertView addSubview:lineDash];
             
             UIButton * leftBtn = [UIButton buttonWithType:(UIButtonTypeSystem)];
             [_alertView addSubview:leftBtn];
             [leftBtn setTitle:leftTitle forState:(UIControlStateNormal)];
-            [leftBtn setTitleColor:change?kFF0000:k666666 forState:(UIControlStateNormal)];
-            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
+            [leftBtn setTitleColor:change?kFF0000:SLFALAERTLEFTTEXTCOLOR forState:(UIControlStateNormal)];
+//            leftBtn.titleLabel.font = [SLFCommonTools pxFont:32];
             
             [leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(132, 46));
@@ -550,7 +590,7 @@ static SLFAlert * instance = nil;
         }];
         
         
-        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
+//        [_alertView setupAutoHeightWithBottomView:rightBtn bottomMargin:0];
         
         [rightBtn setOnClickBlock:^(UIButton *sender) {
             [weakSelf cancelTap];
@@ -579,5 +619,34 @@ static SLFAlert * instance = nil;
 //    }];
 }
 
++ (UIViewController*)currentViewController {
+ 
+    UIViewController* vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+ 
+    while (1) {
+    
+        if ([vc isKindOfClass:[UITabBarController class]]) {
+            vc = ((UITabBarController*)vc).selectedViewController;
+        }
+        if ([vc isKindOfClass:[UINavigationController class]]) {
+            vc = ((UINavigationController*)vc).visibleViewController;
+        }
+        if (vc.presentedViewController) {
+            vc = vc.presentedViewController;
+        }else{
+            break;
+        }
+    
+    }
+ 
+    return vc;
+ 
+}
+
++(UIView *)lineViewToHight:(float)hight spaceForRightAndLetf:(float)space {
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(space, hight, kScreenW - space*2, 0.5)];
+    view.backgroundColor = [UIColor colorWithString:@"#D7D5D6"];
+    return view;
+}
 
 @end

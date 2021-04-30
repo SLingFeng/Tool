@@ -37,7 +37,7 @@
 //#import "WRNavigationBar.h"
 //#import <HBDNavigationBar/UIViewController+HBD.h>
 //#import <HBDNavigationBar/HBDNavigationController.h>
-#import "GVUserDefaults+SLFUserInfo.h"
+//#import "GVUserDefaults+SLFUserInfo.h"
 //#import <YPNavigationBarTransition/YPNavigationBarTransition.h>
 
 
