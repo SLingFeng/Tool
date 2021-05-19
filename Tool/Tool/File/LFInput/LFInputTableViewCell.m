@@ -237,6 +237,14 @@
     if (model.rightTextColor) {
         self.subLabel.textColor = model.rightTextColor;
     }
+    if (model.isRequired) {
+        [self c_RequiredLabel];
+        self.requiredLabel.hidden = 0;
+    }else {
+        if (self.requiredLabel) {
+            self.requiredLabel.hidden = 1;
+        }
+    }
     
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
 //        make.width.mas_equalTo([self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)]);
@@ -270,6 +278,25 @@
         }];
     }
     
+}
+
+- (UILabel *)c_RequiredLabel {
+
+    self.requiredLabel = [[UILabel alloc] init];
+    self.requiredLabel.textColor = [UIColor colorWithString:@"#FB4B4B"];
+    self.requiredLabel.text = @"*";
+    self.requiredLabel.font = [UIFont systemFontOfSize:(16)];
+    [self.contentView addSubview:self.requiredLabel];
+    
+    [self.requiredLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.titleLabel.mas_left).offset(-3);
+        make.top.equalTo(self.titleLabel).offset(0);
+    }];
+    return self.requiredLabel;
+}
+
+- (void)reload {
+    self.model = self.model;
 }
 
 @end
@@ -367,7 +394,7 @@
         self.sh = [[UISwitch alloc] init];
         [self.contentView addSubview:self.sh];
         [self.sh addTarget:self action:@selector(switchClick:) forControlEvents:(UIControlEventValueChanged)];
-        self.sh.onTintColor = [UIColor colorWithString:@"22aec1"];
+        self.sh.onTintColor = kMainColor;
         
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.left.equalTo(self.leftIV.mas_right).offset(11);

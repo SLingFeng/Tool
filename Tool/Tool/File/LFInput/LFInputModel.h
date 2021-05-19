@@ -59,6 +59,8 @@ cell的状态
 
 @property (nonatomic, assign) CGFloat cellHeight;
 
+@property (nonatomic, retain) id object;
+
 #pragma mark - 输入cell
 
 
@@ -79,6 +81,10 @@ cell的状态
 
 
 //@property (nonatomic, retain) FSTextView *textView;
+
+#pragma mark - LFInputItemTableViewCell
+//显示 *
+@property (nonatomic, assign) BOOL isRequired;
 
 #pragma mark - 群设置
 //no关 yes开

@@ -17,11 +17,12 @@
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.backgroundColor = assist_viewBg_color;
+    self.tableView.backgroundColor = KBGCOLOR;
     self.tableView.backgroundColor = [UIColor colorWithString:@"#F8F9FB"];
     self.tableView.separatorStyle = 1;
     [self.tableView setSeparatorColor:HEX_RGB(0xebebeb)];
-
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -79,7 +80,7 @@
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.tableView.backgroundColor = assist_viewBg_color;
+    self.tableView.backgroundColor = KBGCOLOR;
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -155,13 +156,13 @@
 }
 
 //组头文字提示
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (self.modelArr.count > section) {
-        LFInputModel *model = [self.modelArr[section] firstObject];
-        return model.titleForHeaderInSection;
-    }
-    return nil;
-}
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    if (self.modelArr.count > section) {
+//        LFInputModel *model = [self.modelArr[section] firstObject];
+//        return model.titleForHeaderInSection;
+//    }
+//    return nil;
+//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     LFInputModel *model = [self.modelArr[section] firstObject];
@@ -169,6 +170,29 @@
         return 0;
     }
     return model.heightForHeaderInSection;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.modelArr.count > section) {
+        LFInputModel *model = [self.modelArr[section] firstObject];
+        
+        UIView *view = [[UIView alloc] init];
+        
+        UILabel * label = [[UILabel alloc] init];
+        label.textColor = [UIColor text99Color];
+        label.font = [UIFont systemFontOfSize:12];
+        [view addSubview:label];
+        label.text = model.titleForHeaderInSection;
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.offset(0);
+            make.left.offset(15);
+            make.right.offset(-15);
+        }];
+        
+        return view;
+    }
+    return nil;
 }
 
 @end
