@@ -208,7 +208,7 @@
         }];
         
         [self.subLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.arrowIV.mas_left).offset(-6).priorityMedium();
+            make.right.equalTo(self.arrowIV.mas_left).offset(-6);
             make.centerY.offset(0);
             make.left.equalTo(self.titleLabel.mas_right).offset(10);
         }];
@@ -216,7 +216,7 @@
         [self.rightIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.arrowIV.mas_left).offset(-6).priorityMedium();
             make.centerY.offset(0);
-            make.left.equalTo(self.titleLabel.mas_right).offset(10);
+//            make.left.equalTo(self.titleLabel.mas_right).offset(10);
         }];
         
         [self.arrowIV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -247,25 +247,25 @@
     }
     
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.width.mas_equalTo([self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)]);
+        make.width.mas_equalTo([self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)]);
         make.left.offset(15);
         make.centerY.offset(0);
     }];
     
     self.arrowIV.hidden = _model.arrowHidden;
-    if (_model.rightSpace > 0) {
+    if (_model.rightLabelSpace > 0) {
         [self.subLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.contentView.mas_right).offset(-model.rightSpace);
+            make.right.equalTo(self.contentView.mas_right).offset(-model.rightLabelSpace);
 //            make.width.mas_lessThanOrEqualTo(kScreenW - model.maxLeftSpace - model.rightSpace - self.titleLabel.frame.size.width - 5);
         }];
     }
     
     if (_model.leftImageName == nil || [_model.leftImageName isEqualToString:@""]) {
         self.rightIV.hidden = 1;
-        self.subLabel.hidden = 0;
+//        self.subLabel.hidden = 0;
     }else {
         self.rightIV.hidden = 0;
-        self.subLabel.hidden = 1;
+//        self.subLabel.hidden = 1;
         self.rightIV.image = [UIImage imageNamed:_model.leftImageName];
         [self.rightIV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(model.leftImageSize);
@@ -468,6 +468,37 @@
 - (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
+    
+    self.titleLabel.textColor = model.inputCenterColor;
+    
+    CGFloat x = 0;
+    if (model.inputCenterLeftView) {
+        [self.contentView addSubview:model.inputCenterLeftView];
+        [model.inputCenterLeftView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.titleLabel.mas_left).offset(-8);
+            make.size.mas_equalTo(model.inputCenterLeftView.frame.size);
+            make.centerY.offset(0);
+        }];
+        x += model.inputCenterLeftView.frame.size.width / 2;
+        
+    }
+    [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.offset(x);
+        make.centerY.offset(0);
+    }];
+    
+}
+@end
+
+
+@implementation NSString (LFSize)
++ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize {
+    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size;
+}
+
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
+ 
+    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size;
     
 }
 @end

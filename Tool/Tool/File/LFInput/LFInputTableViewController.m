@@ -20,7 +20,7 @@
     self.tableView.backgroundColor = KBGCOLOR;
     self.tableView.backgroundColor = [UIColor colorWithString:@"#F8F9FB"];
     self.tableView.separatorStyle = 1;
-    [self.tableView setSeparatorColor:HEX_RGB(0xebebeb)];
+    [self.tableView setSeparatorColor:kLineColor];
     self.tableView.separatorInset = UIEdgeInsetsZero;
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -169,7 +169,12 @@
     if (model.titleForHeaderInSection == nil || [model.titleForHeaderInSection isEqualToString:@""]) {
         return 0;
     }
-    return model.heightForHeaderInSection;
+    CGFloat h = [model.titleForHeaderInSection sizeWithFont:[UIFont systemFontOfSize:12] byWidth:kScreenW - 30].height + 20;
+    if (model.heightForHeaderInSection > h) {
+        return model.heightForHeaderInSection;
+    }else {
+        return h;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -182,6 +187,7 @@
         label.textColor = [UIColor text99Color];
         label.font = [UIFont systemFontOfSize:12];
         [view addSubview:label];
+        label.numberOfLines = 0;
         label.text = model.titleForHeaderInSection;
         
         [label mas_makeConstraints:^(MASConstraintMaker *make) {

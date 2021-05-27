@@ -44,6 +44,8 @@ cell的状态
  
  7: InputSwitchTableViewCell
  
+ ///标题 剧中
+ 8: LFInputCenterTableViewCell
  */
 
 #pragma mark - 通用
@@ -56,6 +58,8 @@ cell的状态
 @property (nonatomic, assign) CGFloat maxLeftSpace;
 
 @property (nonatomic, assign) CGFloat rightSpace;
+
+@property (nonatomic, assign) CGFloat rightLabelSpace;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 
@@ -109,6 +113,12 @@ cell的状态
 @property (nonatomic, retain) UIView *codeView;
 
 @property (nonatomic, retain) UIView *customView;
+
+///标题 剧中 8: LFInputCenterTableViewCell
+
+@property (nonatomic, retain) UIColor *inputCenterColor;
+///标题左边图片
+@property (nonatomic, retain) UIView *inputCenterLeftView;
 
 #pragma mark -
 @property (nonatomic, assign) BOOL rightIVHidden;

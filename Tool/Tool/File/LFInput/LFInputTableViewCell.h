@@ -69,5 +69,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface NSString (LFSize)
+//+ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize;
+
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+@end
 
 NS_ASSUME_NONNULL_END
