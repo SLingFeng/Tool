@@ -253,12 +253,18 @@
     }];
     
     self.arrowIV.hidden = _model.arrowHidden;
-    if (_model.rightLabelSpace > 0) {
-        [self.subLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.subLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        if (model.rightLabelSpace > 0) {
+            make.right.equalTo(self.arrowIV.mas_left).offset(-6);
+        }else {
             make.right.equalTo(self.contentView.mas_right).offset(-model.rightLabelSpace);
-//            make.width.mas_lessThanOrEqualTo(kScreenW - model.maxLeftSpace - model.rightSpace - self.titleLabel.frame.size.width - 5);
-        }];
-    }
+        }
+        make.centerY.offset(0);
+        make.left.equalTo(self.titleLabel.mas_right).offset(10);
+        
+        //            make.width.mas_lessThanOrEqualTo(kScreenW - model.maxLeftSpace - model.rightSpace - self.titleLabel.frame.size.width - 5);
+    }];
+    
     
     if (_model.leftImageName == nil || [_model.leftImageName isEqualToString:@""]) {
         self.rightIV.hidden = 1;
