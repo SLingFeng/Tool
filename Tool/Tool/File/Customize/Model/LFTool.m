@@ -59,6 +59,106 @@
 //    double b = total.doubleValue / 1024 / 1024 / 1024;
 //    double per = a / b * 100;
 }
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    __weak __typeof(&*self) weakSelf = self;
+//    
+//    GHStorageTopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHStorageTopTableViewCell"];
+//    
+//    [cell reload:indexPath.section];
+//    if (indexPath.section == 0) {
+//        NSString *documentPath = [IMKitFileLocationHelper userDirectory];
+//        long long q1 = [LFTool folderSizeAtPath:documentPath];
+//        
+//        long long q2 = [LFTool folderSizeAtPath:[QDFileHandler SDKDir]];
+//        
+//        long long q3 = [LFTool folderSizeAtPath:[IMKitFileLocationHelper getAppTempPath]];
+//                
+//        NSNumber * use = [NSNumber numberWithLongLong:(q1 + q2 + q3)];
+//
+//        NSNumber * total = [LFTool getDivceFreeAndTotalSize].lastObject;
+//
+//        double a = use.doubleValue / 1024 / 1024 / 1024;
+//        double b = total.doubleValue / 1024 / 1024 / 1024;
+//        double per = a / b * 100;
+//
+//        cell.topLabel.text = @"已用空间";
+//        cell.centerLabel.text = [LFTool sizeOfFile:use.longLongValue];
+//        cell.bottomLabel.text = [NSString stringWithFormat:@"占据手机%.3f%%存储空间", per];
+//        
+//    } else if (indexPath.section == 1) {
+//        cell.topLabel.text = @"聊天记录";
+//        cell.centerLabel.text = @"0";
+//        cell.bottomLabel.text = @"可清理聊天中的图片、视频、文件等数据，但不会删除消息。";
+//        
+//    } else if (indexPath.section == 2) {
+//
+//        long long a = [LFTool folderSizeAtPath:[QDFileHandler SDKDir]];
+//        
+//        long long b = [LFTool folderSizeAtPath:[IMKitFileLocationHelper getAppTempPath]];
+//        
+//        long long c = [LFTool folderSizeAtPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
+//        
+//        long long d = [[SDImageCache sharedImageCache] totalDiskSize];
+//        
+//        NSNumber * tu = [NSNumber numberWithLongLong:(a + b + c + d)];
+//        
+//        cell.topLabel.text = @"缓存";
+//        cell.centerLabel.text = [LFTool sizeOfFile:tu.longLongValue];
+//        cell.bottomLabel.text = @"缓存是使用软件过程中产生的临时数据，清理缓存不会影响软件的正常使用。";
+//
+//        cell.doBtn.onClickBlock = ^(UIButton * _Nonnull btn) {
+//            [SLFAlert showSystemAlertWithTitle:@"确定清理缓存?" text:nil determineTitle:@"清理" cancelTitle:@"取消" alertClick:^(BOOL rightClick) {
+//                if (rightClick) {
+//                    [weakSelf clearFileCache];
+//                }
+//            }];
+//        };
+//    }
+//    return cell;
+//
+//}
+//
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return NO;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return UITableViewAutomaticDimension;
+//}
+//
+//- (void)clearFileCache {
+//    
+//    [[HUD shareHUD] showWait:@"正在清除"];
+//    
+//    [self removeAndCreate:[QDFileHandler SDKDir]];
+//    
+//    [self removeAndCreate:[IMKitFileLocationHelper getAppTempPath]];
+//
+//    [NSObject clearTheCache];
+//    
+//    [[YunPanDownloadManager instance] clear];
+//    
+////    @weakify(self);
+//    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+////        @strongify(self);
+//        
+//        [[HUD shareHUD] hideWait];
+//        
+//        [[HUD shareHUD] showText:@"清除成功"];
+//                
+//    }];
+//}
+//
+//- (void)removeAndCreate:(NSString *)tolatPath {
+//
+//    NSDirectoryEnumerator *docEnumerator   = [[NSFileManager defaultManager] enumeratorAtPath:tolatPath];
+//    
+//    for (NSString *fileName in docEnumerator) {
+//        NSString *fileDirPath = [tolatPath stringByAppendingPathComponent:fileName];
+//        [[NSFileManager defaultManager] removeItemAtPath:fileDirPath error:nil];
+//        [[NSFileManager defaultManager] createDirectoryAtPath:fileDirPath withIntermediateDirectories:YES attributes:nil error:nil];
+//    }
+//}
 
 ///单个文件的大小
 + (long long)fileSizeAtPath:(NSString *)filePath {
