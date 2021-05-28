@@ -12,8 +12,8 @@
 #define kWEAKOBJ(weakObj, _obj) __weak __typeof(&*_obj) weakObj = _obj
 #define kMainSpace 0
 
-#define SLFALAERTLEFTTEXTCOLOR [UIColor colorWithString:@"#1384FF"]
-#define SLFALAERTRIGHTTEXTCOLOR [UIColor colorWithString:@"#1384FF"]
+#define SLFALAERTLEFTTEXTCOLOR [UIColor colorHex:@"#1384FF"]
+#define SLFALAERTRIGHTTEXTCOLOR [UIColor colorHex:@"#1384FF"]
 
 @interface SLFAlert ()
 {
@@ -214,7 +214,7 @@ static SLFAlert * instance = nil;
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
 
         UIView * b = [[UIView alloc] initWithFrame:([UIScreen mainScreen].bounds)];
-        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
+        b.backgroundColor = [[UIColor colorHex:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
 
         _alertView = [[UIView alloc] init];
@@ -337,7 +337,7 @@ static SLFAlert * instance = nil;
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
         
         UIView * b = [[UIView alloc] initWithFrame:kScreen];
-        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
+        b.backgroundColor = [[UIColor colorHex:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
         
         _alertView = [[UIView alloc] init];
@@ -469,7 +469,7 @@ static SLFAlert * instance = nil;
         [[UIApplication sharedApplication].keyWindow addSubview:_backgroundView];
         
         UIView * b = [[UIView alloc] initWithFrame:kScreen];
-        b.backgroundColor = [[UIColor colorWithString:@"#000000"] colorWithAlphaComponent:0.6];
+        b.backgroundColor = [[UIColor colorHex:@"#000000"] colorWithAlphaComponent:0.6];
         [_backgroundView addSubview:b];
         
         _alertView = [[UIView alloc] init];
@@ -645,7 +645,7 @@ static SLFAlert * instance = nil;
 
 +(UIView *)lineViewToHight:(float)hight spaceForRightAndLetf:(float)space {
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(space, hight, kScreenW - space*2, 0.5)];
-    view.backgroundColor = [UIColor colorWithString:@"#D7D5D6"];
+    view.backgroundColor = [UIColor colorHex:@"#D7D5D6"];
     return view;
 }
 

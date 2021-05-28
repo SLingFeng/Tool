@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 //全面屏机型判断
 +(BOOL)isFullScreenIphone;
 
++ (NSArray *)getDivceFreeAndTotalSize;
 
 @end
 

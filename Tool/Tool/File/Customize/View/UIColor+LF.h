@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #define kFF4848 [UIColor colorHex:@"FF4848"]
 
+#define KBGCOLOR [UIColor whiteColor]
+
 @interface UIColor (LF)
 
 #pragma mark - 颜色

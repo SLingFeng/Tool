@@ -7,6 +7,8 @@
 
 #import "ViewController.h"
 #import "UIButton+LF.h"
+#import "LFTool.h"
+
 @interface ViewController ()
 
 @end
@@ -22,6 +24,9 @@
     btn.onClickBlock = ^(UIButton * _Nonnull btn) {
         NSLog(@"qwe");
     };
+    
+    [LFTool getDivceSize];
+
 }
 
 
