@@ -52,6 +52,8 @@ cell的状态
 @property (nonatomic, assign) NSInteger type;
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, retain) UIColor *titleColor;
+@property (nonatomic, retain) UIFont *titleFont;
 ///可以把 id 改 相应的 cell
 @property (nonatomic, copy) void(^cellDidClick)(id cell);
 ///默认0titlelabel左边 \\ 大于0是距离cell.mas_left的距离
@@ -83,8 +85,11 @@ cell的状态
 @property(nonatomic) NSTextAlignment tfTextAlignment;
 
 
-
 //@property (nonatomic, retain) FSTextView *textView;
+
+@property (nonatomic, retain) UITextView *textView;
+
+@property (nonatomic, assign) BOOL textViewEditable;
 
 #pragma mark - LFInputItemTableViewCell
 //显示 *

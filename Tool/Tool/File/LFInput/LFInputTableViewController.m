@@ -90,6 +90,7 @@
     [self.tableView registerClass:[LFInputItemTableViewCell class] forCellReuseIdentifier:@"LFInputItemTableViewCell"];
     [self.tableView registerClass:[InputSwitchTableViewCell class] forCellReuseIdentifier:@"InputSwitchTableViewCell"];
     [self.tableView registerClass:[LFInputCenterTableViewCell class] forCellReuseIdentifier:@"LFInputCenterTableViewCell"];
+    [self.tableView registerClass:[LFInputTextViewTableViewCell class] forCellReuseIdentifier:@"LFInputTextViewTableViewCell"];
     
 //    if (@available(iOS 11.0, *)) {
 //        self.tableView.estimatedSectionHeaderHeight = 0.01;
@@ -108,8 +109,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LFInputModel *model = self.modelArr[indexPath.section][indexPath.row];
-
-    if (model.type == 6) {
+    
+    if (model.type == 4) {
+        LFInputTextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputTextViewTableViewCell"];
+        cell.model = model;
+        return cell;
+        
+    }else if (model.type == 6) {
         LFInputItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LFInputItemTableViewCell"];
 
         cell.model = model;

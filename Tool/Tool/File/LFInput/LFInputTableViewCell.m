@@ -95,8 +95,9 @@
 
 //    self.titleLabel.attributedText = [model.title attributedStringWithStyleBook:style];
     self.titleLabel.text = model.title;
+    self.titleLabel.textColor = model.titleColor;
+    self.titleLabel.font = model.titleFont;
 
-    
     [self.tf mas_updateConstraints:^(MASConstraintMaker *make) {
         if (model.type == 31) {
             make.left.equalTo(self.contentView).offset(16);
@@ -232,6 +233,8 @@
 - (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
+    self.titleLabel.textColor = model.titleColor;
+    self.titleLabel.font = model.titleFont;
     self.subLabel.text = model.rightText;
     
     if (model.rightTextColor) {
@@ -255,9 +258,9 @@
     self.arrowIV.hidden = _model.arrowHidden;
     [self.subLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (model.rightLabelSpace > 0) {
-            make.right.equalTo(self.arrowIV.mas_left).offset(-6);
-        }else {
             make.right.equalTo(self.contentView.mas_right).offset(-model.rightLabelSpace);
+        }else {
+            make.right.equalTo(self.arrowIV.mas_left).offset(-6);
         }
         make.centerY.offset(0);
         make.left.equalTo(self.titleLabel.mas_right).offset(10);
@@ -345,44 +348,49 @@
 //}
 //@end
 //
-//@implementation LFInputTextViewTableViewCell
-//
-//
-//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-//    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//
+@implementation LFInputTextViewTableViewCell
+
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+//        self.contentView.backgroundColor = [UIColor whiteColor];
+        
+        UITextView *textView = [[UITextView alloc] init];
 //        FSTextView *textView = [[FSTextView alloc] init];
 //        textView.placeholder = @"请输入";
 //        textView.textColor = main_text_color;
-//        [textView setFont:[UIFont systemFontOfSize:14]];
+        [textView setFont:[UIFont systemFontOfSize:14]];
 //        [textView setPlaceholderColor:[UIColor colorWithHexString:@"AFB2B9"]];
 //        textView.maxLength = 500;
-//        [self.contentView addSubview:textView];
-//        self.textView = textView;
-//        textView.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6"];
-//        
-//        [textView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.offset(15);
-//            make.right.offset(-16);
-//            make.left.offset(16);
-//            make.height.offset(100);
-//        }];
-//        
+        [self.contentView addSubview:textView];
+        self.textView = textView;
+        textView.backgroundColor = [UIColor whiteColor];
+        
+        [textView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(15);
+            make.right.offset(-16);
+            make.left.offset(16);
+            make.height.offset(100);
+        }];
+        
 //        ViewRadius(textView, 8);
-//
-//    }
-//    return self;
-//}
-//
-//- (void)setModel:(LFInputModel *)model {
-//    _model = model;
-//    
+
+    }
+    return self;
+}
+
+- (void)setModel:(LFInputModel *)model {
+    _model = model;
+    
+    self.textView.text = model.title;
 //    self.textView.placeholder = _model.placeholder;
-//    _model.textView = self.textView;
-//    
-//}
-//
-//@end
+    _model.textView = self.textView;
+    [self.textView setFont:model.titleFont];
+    self.textView.editable = model.textViewEditable;
+}
+
+@end
 
 @implementation InputSwitchTableViewCell
 
@@ -421,6 +429,8 @@
 - (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
+    self.titleLabel.textColor = model.titleColor;
+    self.titleLabel.font = model.titleFont;
     self.sh.on = model.switchOn;
     model.sh = self.sh;
     
@@ -474,9 +484,10 @@
 - (void)setModel:(LFInputModel *)model {
     _model = model;
     self.titleLabel.text = model.title;
-    
+    self.titleLabel.textColor = model.titleColor;
     self.titleLabel.textColor = model.inputCenterColor;
-    
+    self.titleLabel.font = model.titleFont;
+
     CGFloat x = 0;
     if (model.inputCenterLeftView) {
         [self.contentView addSubview:model.inputCenterLeftView];

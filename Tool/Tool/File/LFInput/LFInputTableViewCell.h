@@ -48,11 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 //
 //@end
 //
-//@interface LFInputTextViewTableViewCell : UITableViewCell
-//@property (nonatomic, retain) FSTextView *textView;
-//@property (nonatomic, retain) LFInputModel *model;
-//
-//@end
+@interface LFInputTextViewTableViewCell : UITableViewCell
+@property (nonatomic, retain) UITextView *textView;
+@property (nonatomic, retain) LFInputModel *model;
+
+@end
 
 @interface InputSwitchTableViewCell : UITableViewCell
 
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface NSString (LFSize)
-//+ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize;
++ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize;
 
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
 @end
