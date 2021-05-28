@@ -6,14 +6,14 @@
 //  Copyright © 2020 孙凌锋. All rights reserved.
 //
 
-//#import "BaseViewController.h"
+#import "BaseViewController.h"
 #import "LFInputModel.h"
 //#import "LFGradientButton.h"
 #import "LFInputTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LFBaseTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface LFBaseTableViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) UITableView *tableView;
 

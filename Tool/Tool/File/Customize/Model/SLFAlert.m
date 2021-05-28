@@ -10,7 +10,7 @@
 
 #define kWEAKSELF(weakSelf) __weak __typeof(&*self) weakSelf = self
 #define kWEAKOBJ(weakObj, _obj) __weak __typeof(&*_obj) weakObj = _obj
-#define kMainSpace 0
+//#define kMainSpace 0
 
 #define SLFALAERTLEFTTEXTCOLOR [UIColor colorHex:@"#1384FF"]
 #define SLFALAERTRIGHTTEXTCOLOR [UIColor colorHex:@"#1384FF"]

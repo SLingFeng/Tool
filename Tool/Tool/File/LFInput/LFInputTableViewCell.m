@@ -81,7 +81,7 @@
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
 //                             //                             @"font2" : [SLFCommonTools pxFont:30],
 //                             @"color" : [UIColor grayColor],
-//                             @"plColor" : [UIColor colorHex:@"AFB2B9"],
+//                             @"plColor" : [UIColor colorWithString:@"AFB2B9"],
 //                             //                             @"color3" : HEXCOLOR(0xFF0000)
 //
 //    };
@@ -250,7 +250,8 @@
     }
     
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo([self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)]);
+        CGFloat w = [self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)].width + 5;
+        make.width.mas_equalTo(w);
         make.left.offset(15);
         make.centerY.offset(0);
     }];
@@ -263,7 +264,7 @@
             make.right.equalTo(self.arrowIV.mas_left).offset(-6);
         }
         make.centerY.offset(0);
-        make.left.equalTo(self.titleLabel.mas_right).offset(10);
+        make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityLow();
         
         //            make.width.mas_lessThanOrEqualTo(kScreenW - model.maxLeftSpace - model.rightSpace - self.titleLabel.frame.size.width - 5);
     }];
@@ -292,7 +293,7 @@
 - (UILabel *)c_RequiredLabel {
 
     self.requiredLabel = [[UILabel alloc] init];
-    self.requiredLabel.textColor = [UIColor colorHex:@"#FB4B4B"];
+    self.requiredLabel.textColor = [UIColor colorWithString:@"#FB4B4B"];
     self.requiredLabel.text = @"*";
     self.requiredLabel.font = [UIFont systemFontOfSize:(16)];
     [self.contentView addSubview:self.requiredLabel];
@@ -514,8 +515,8 @@
 }
 
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
- 
-    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size;
+    CGRect r = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil];
+    return r.size;
     
 }
 @end

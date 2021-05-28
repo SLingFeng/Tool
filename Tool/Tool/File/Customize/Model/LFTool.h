@@ -26,8 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 //全面屏机型判断
 +(BOOL)isFullScreenIphone;
-
+///手机可用 总 空间
 + (NSArray *)getDivceFreeAndTotalSize;
+///单个文件的大小
++ (long long)fileSizeAtPath:(NSString *)filePath;
+///遍历文件夹获得文件夹大小
++ (long long)folderSizeAtPath:(NSString *)folderPath;
+/// 返回具体的大小字符串
++ (NSString *)sizeOfFile:(long long)folderSize;
+
 
 @end
 

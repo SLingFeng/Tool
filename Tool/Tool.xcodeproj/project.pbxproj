@@ -64,10 +64,10 @@
 		3121E3E326202997008A7E43 /* CodeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E38B26202997008A7E43 /* CodeImage.m */; };
 		3121E41426202ED9008A7E43 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E41326202ED9008A7E43 /* GVUserDefaults.m */; };
 		3121E41B26203317008A7E43 /* UIColor+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E41A26203317008A7E43 /* UIColor+LF.m */; };
-		3121E45726203D91008A7E43 /* UIButton+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45626203D91008A7E43 /* UIButton+LF.m */; };
 		3121E45F26204864008A7E43 /* UILabel+LFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E45E26204864008A7E43 /* UILabel+LFLabel.m */; };
 		3121E46426204CEF008A7E43 /* UIView+LFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E46326204CEF008A7E43 /* UIView+LFView.m */; };
-		31F0785F26393C500044B397 /* LFTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F0785E26393C500044B397 /* LFTool.m */; };
+		31CFEC7F2660CB1A005FAF28 /* UIButton+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CFEC7D2660CB1A005FAF28 /* UIButton+LF.m */; };
+		31CFEC822660CB2E005FAF28 /* LFTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CFEC812660CB2E005FAF28 /* LFTool.m */; };
 		3D48EE8B894A0B0C705B3B4A /* libPods-Tool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */; };
 /* End PBXBuildFile section */
 
@@ -186,14 +186,14 @@
 		3121E41326202ED9008A7E43 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
 		3121E41926203317008A7E43 /* UIColor+LF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+LF.h"; sourceTree = "<group>"; };
 		3121E41A26203317008A7E43 /* UIColor+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LF.m"; sourceTree = "<group>"; };
-		3121E45526203D91008A7E43 /* UIButton+LF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LF.h"; sourceTree = "<group>"; };
-		3121E45626203D91008A7E43 /* UIButton+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LF.m"; sourceTree = "<group>"; };
 		3121E45D26204864008A7E43 /* UILabel+LFLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LFLabel.h"; sourceTree = "<group>"; };
 		3121E45E26204864008A7E43 /* UILabel+LFLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LFLabel.m"; sourceTree = "<group>"; };
 		3121E46226204CEF008A7E43 /* UIView+LFView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LFView.h"; sourceTree = "<group>"; };
 		3121E46326204CEF008A7E43 /* UIView+LFView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LFView.m"; sourceTree = "<group>"; };
-		31F0785D26393C500044B397 /* LFTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFTool.h; sourceTree = "<group>"; };
-		31F0785E26393C500044B397 /* LFTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFTool.m; sourceTree = "<group>"; };
+		31CFEC7D2660CB1A005FAF28 /* UIButton+LF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LF.m"; sourceTree = "<group>"; };
+		31CFEC7E2660CB1A005FAF28 /* UIButton+LF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LF.h"; sourceTree = "<group>"; };
+		31CFEC802660CB2E005FAF28 /* LFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTool.h; sourceTree = "<group>"; };
+		31CFEC812660CB2E005FAF28 /* LFTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTool.m; sourceTree = "<group>"; };
 		8053BBD70863C1C0C728464A /* Pods-Tool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.release.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.release.xcconfig"; sourceTree = "<group>"; };
 		E31C81798C00A0794D623A63 /* Pods-Tool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tool.debug.xcconfig"; path = "Target Support Files/Pods-Tool/Pods-Tool.debug.xcconfig"; sourceTree = "<group>"; };
 		F47DFBE6164DC71FA7A7C1E3 /* libPods-Tool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -370,10 +370,10 @@
 		3121E35526202997008A7E43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				31CFEC802660CB2E005FAF28 /* LFTool.h */,
+				31CFEC812660CB2E005FAF28 /* LFTool.m */,
 				3121E35726202997008A7E43 /* GVUserDefaults+SLFUserInfo.h */,
 				3121E36126202997008A7E43 /* GVUserDefaults+SLFUserInfo.m */,
-				31F0785D26393C500044B397 /* LFTool.h */,
-				31F0785E26393C500044B397 /* LFTool.m */,
 				3121E36726202997008A7E43 /* MyLocation.h */,
 				3121E35F26202997008A7E43 /* MyLocation.m */,
 				3121E36626202997008A7E43 /* RequestPost.h */,
@@ -397,6 +397,8 @@
 		3121E36926202997008A7E43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31CFEC7E2660CB1A005FAF28 /* UIButton+LF.h */,
+				31CFEC7D2660CB1A005FAF28 /* UIButton+LF.m */,
 				3121E37826202997008A7E43 /* CodeImage.h */,
 				3121E38B26202997008A7E43 /* CodeImage.m */,
 				3121E37526202997008A7E43 /* CollectSratView.h */,
@@ -433,8 +435,6 @@
 				3121E37226202997008A7E43 /* UIView+ViewController.m */,
 				3121E37E26202997008A7E43 /* ZhanShiKuangView.h */,
 				3121E36B26202997008A7E43 /* ZhanShiKuangView.m */,
-				3121E45526203D91008A7E43 /* UIButton+LF.h */,
-				3121E45626203D91008A7E43 /* UIButton+LF.m */,
 				3121E45D26204864008A7E43 /* UILabel+LFLabel.h */,
 				3121E45E26204864008A7E43 /* UILabel+LFLabel.m */,
 				3121E46226204CEF008A7E43 /* UIView+LFView.h */,
@@ -612,12 +612,10 @@
 				3121E3E126202997008A7E43 /* CollectSratView.m in Sources */,
 				3121E3DA26202997008A7E43 /* MineTableViewCell.m in Sources */,
 				3121E3DB26202997008A7E43 /* ThemeButton.m in Sources */,
-				31F0785F26393C500044B397 /* LFTool.m in Sources */,
 				3121E3DF26202997008A7E43 /* StatusLabelView.m in Sources */,
 				3121E3B326202997008A7E43 /* MyBaseTableViewController.m in Sources */,
 				3121E3B526202997008A7E43 /* SLF_MainTabBarConfig.m in Sources */,
 				3121E3B426202997008A7E43 /* MyBaseViewController.m in Sources */,
-				3121E45726203D91008A7E43 /* UIButton+LF.m in Sources */,
 				3121E3C226202997008A7E43 /* UIImageView+SLFImageView.m in Sources */,
 				3121E3D526202997008A7E43 /* UILabel+AlertActionFont.m in Sources */,
 				3121E2BE262027D0008A7E43 /* SceneDelegate.m in Sources */,
@@ -639,8 +637,10 @@
 				3107D7DC26366072002ACD82 /* LFInputTableViewCell.m in Sources */,
 				3121E3BA26202997008A7E43 /* MyTableView.m in Sources */,
 				3121E3C026202997008A7E43 /* MyTextView.m in Sources */,
+				31CFEC7F2660CB1A005FAF28 /* UIButton+LF.m in Sources */,
 				3121E3C926202997008A7E43 /* SLFHUD.m in Sources */,
 				3121E3D726202997008A7E43 /* SelectDataPicker.m in Sources */,
+				31CFEC822660CB2E005FAF28 /* LFTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

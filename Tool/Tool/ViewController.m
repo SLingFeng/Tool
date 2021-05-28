@@ -25,7 +25,7 @@
         NSLog(@"qwe");
     };
     
-    [LFTool getDivceSize];
+    [LFTool getDivceFreeAndTotalSize];
 
 }
 

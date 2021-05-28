@@ -18,7 +18,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = KBGCOLOR;
-    self.tableView.backgroundColor = [UIColor colorHex:@"#F8F9FB"];
+    self.tableView.backgroundColor = [UIColor colorWithString:@"#F8F9FB"];
     self.tableView.separatorStyle = 1;
     [self.tableView setSeparatorColor:kLineColor];
     self.tableView.separatorInset = UIEdgeInsetsZero;
@@ -175,7 +175,7 @@
     if (model.titleForHeaderInSection == nil || [model.titleForHeaderInSection isEqualToString:@""]) {
         return 0;
     }
-    CGFloat h = [model.titleForHeaderInSection sizeWithFont:[UIFont systemFontOfSize:12] maxSize:CGSizeMake(kScreenW - 30, CGFLOAT_MAX)].height + 20;
+    CGFloat h = [model.titleForHeaderInSection sizeWithFont:[UIFont systemFontOfSize:12] byWidth:kScreenW - 30].height + 20;
     if (model.heightForHeaderInSection > h) {
         return model.heightForHeaderInSection;
     }else {
