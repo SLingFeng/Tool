@@ -81,7 +81,7 @@
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
 //                             //                             @"font2" : [SLFCommonTools pxFont:30],
 //                             @"color" : [UIColor grayColor],
-//                             @"plColor" : [UIColor colorWithString:@"AFB2B9"],
+//                             @"plColor" : [UIColor colorHex:@"AFB2B9"],
 //                             //                             @"color3" : HEXCOLOR(0xFF0000)
 //
 //    };
@@ -293,7 +293,7 @@
 - (UILabel *)c_RequiredLabel {
 
     self.requiredLabel = [[UILabel alloc] init];
-    self.requiredLabel.textColor = [UIColor colorWithString:@"#FB4B4B"];
+    self.requiredLabel.textColor = [UIColor colorHex:@"#FB4B4B"];
     self.requiredLabel.text = @"*";
     self.requiredLabel.font = [UIFont systemFontOfSize:(16)];
     [self.contentView addSubview:self.requiredLabel];

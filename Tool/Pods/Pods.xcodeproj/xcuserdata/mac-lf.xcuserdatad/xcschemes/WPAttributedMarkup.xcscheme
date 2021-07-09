@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "761B02276BB133653A50C73D00C85AD1"
-               BuildableName = "libWPAttributedMarkup.a"
+               BuildableName = "WPAttributedMarkup.framework"
                BlueprintName = "WPAttributedMarkup"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

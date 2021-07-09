@@ -61,6 +61,7 @@
 #import "UIColor+LF.h"
 #import "UIButton+LF.h"
 #import "UILabel+LFLabel.h"
+#import "NSString+LF.h"
 
 #pragma mark - 模型类
 
