@@ -13,6 +13,8 @@
 		31084F9E26982CE8001D129F /* NSString+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 31084F9D26982CE8001D129F /* NSString+LF.m */; };
 		31084FA126982FC8001D129F /* NSData+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 31084FA026982FC8001D129F /* NSData+LF.m */; };
 		31084FA426983128001D129F /* NSDate+LF.m in Sources */ = {isa = PBXBuildFile; fileRef = 31084FA326983128001D129F /* NSDate+LF.m */; };
+		3113557326B8E30E002C0A56 /* LFLoginInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113557226B8E30E002C0A56 /* LFLoginInputView.swift */; };
+		3113557526B92013002C0A56 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113557426B92013002C0A56 /* SWViewController.swift */; };
 		3121E2BB262027D0008A7E43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2BA262027D0008A7E43 /* AppDelegate.m */; };
 		3121E2BE262027D0008A7E43 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2BD262027D0008A7E43 /* SceneDelegate.m */; };
 		3121E2C1262027D0008A7E43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3121E2C0262027D0008A7E43 /* ViewController.m */; };
@@ -87,6 +89,9 @@
 		31084FA026982FC8001D129F /* NSData+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+LF.m"; sourceTree = "<group>"; };
 		31084FA226983128001D129F /* NSDate+LF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+LF.h"; sourceTree = "<group>"; };
 		31084FA326983128001D129F /* NSDate+LF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LF.m"; sourceTree = "<group>"; };
+		3113557126B8E30E002C0A56 /* Tool-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tool-Bridging-Header.h"; sourceTree = "<group>"; };
+		3113557226B8E30E002C0A56 /* LFLoginInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFLoginInputView.swift; sourceTree = "<group>"; };
+		3113557426B92013002C0A56 /* SWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
 		3121E2B6262027D0008A7E43 /* Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3121E2B9262027D0008A7E43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3121E2BA262027D0008A7E43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -291,10 +296,12 @@
 				3121E2BD262027D0008A7E43 /* SceneDelegate.m */,
 				3121E2BF262027D0008A7E43 /* ViewController.h */,
 				3121E2C0262027D0008A7E43 /* ViewController.m */,
+				3113557426B92013002C0A56 /* SWViewController.swift */,
 				3121E2C2262027D0008A7E43 /* Main.storyboard */,
 				3121E2C5262027D2008A7E43 /* Assets.xcassets */,
 				3121E2C7262027D2008A7E43 /* LaunchScreen.storyboard */,
 				3121E2CA262027D2008A7E43 /* Info.plist */,
+				3113557126B8E30E002C0A56 /* Tool-Bridging-Header.h */,
 				3121E2CB262027D2008A7E43 /* main.m */,
 			);
 			path = Tool;
@@ -464,6 +471,7 @@
 				3121E36B26202997008A7E43 /* ZhanShiKuangView.m */,
 				3121E34B26202997008A7E43 /* UIImageView+SLFImageView.h */,
 				3121E33F26202997008A7E43 /* UIImageView+SLFImageView.m */,
+				3113557226B8E30E002C0A56 /* LFLoginInputView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,6 +533,7 @@
 				TargetAttributes = {
 					3121E2B5262027D0008A7E43 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -633,8 +642,10 @@
 				3121E3E226202997008A7E43 /* RegisterAgreementView.m in Sources */,
 				3121E3CC26202997008A7E43 /* GVUserDefaults+SLFUserInfo.m in Sources */,
 				3121E3E126202997008A7E43 /* CollectSratView.m in Sources */,
+				3113557526B92013002C0A56 /* SWViewController.swift in Sources */,
 				3121E3DA26202997008A7E43 /* MineTableViewCell.m in Sources */,
 				3121E3DB26202997008A7E43 /* ThemeButton.m in Sources */,
+				3113557326B8E30E002C0A56 /* LFLoginInputView.swift in Sources */,
 				3121E3DF26202997008A7E43 /* StatusLabelView.m in Sources */,
 				3121E3B326202997008A7E43 /* MyBaseTableViewController.m in Sources */,
 				3121E3B526202997008A7E43 /* SLF_MainTabBarConfig.m in Sources */,
@@ -810,6 +821,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2X46NB83H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -822,6 +834,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sadf.Tool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tool/Tool-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -832,6 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2X46NB83H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -844,6 +860,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sadf.Tool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tool/Tool-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

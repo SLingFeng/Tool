@@ -8,6 +8,7 @@
 #import "ViewController.h"
 #import "UIButton+LF.h"
 #import "LFTool.h"
+#import "Tool-Swift.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,8 @@
     [self.view addSubview:btn];
     btn.onClickBlock = ^(UIButton * _Nonnull btn) {
         NSLog(@"qwe");
+        SWViewController *vc = [[SWViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:1];
     };
     
     [LFTool getDivceFreeAndTotalSize];
