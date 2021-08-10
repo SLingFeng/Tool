@@ -17,25 +17,33 @@ class LFLoginInputView: UIView {
     
     let tf: UITextField = {
         let tf = UITextField()
+        tf.clearButtonMode = .always
+        tf.font = .systemFont(ofSize: 15)
         return tf
     }()
 
-    let rightView: UIView?
+    var rightView: UIView? {
+        didSet {
+            nextLayout()
+        }
+    }
     
     let line: UIView = {
         let l = UIView()
-        l.backgroundColor = .black.withAlphaComponent(0.1)
+//        l.backgroundColor = .init(hex: "#EDEDEE")
         return l
     }()
 
-    init(leftImage: UIImage, pl: String, _ rightView: UIView?) {
+    init(leftImage: UIImage?, pl: String, _ rightView: UIView?) {
         self.rightView = rightView
 
         super.init(frame: .zero)
         leftIV.image = leftImage
         self.addSubview(leftIV)
         
-        tf.placeholder = pl
+//        tf.placeholder = pl
+//        tf.attributedPlaceholder = NSAttributedString.init(string:pl, attributes: [
+//                    NSAttributedString.Key.foregroundColor:UIColor.text99()])
         self.addSubview(tf)
         
         self.addSubview(line)
@@ -50,29 +58,33 @@ class LFLoginInputView: UIView {
             make.left.equalTo(9)
         }
         
+        nextLayout()
+        
+    }
+    
+    func nextLayout() {
         if let rightView = self.rightView {
             self.addSubview(rightView)
-            tf.snp.makeConstraints { make in
+            tf.snp.remakeConstraints { make in
                 make.left.equalTo(leftIV.snp.right).offset(15)
                 make.height.equalTo(35)
                 make.centerY.equalTo(self)
                 make.right.equalTo(rightView.snp.left).offset(-10)
             }
             
-            rightView.snp.makeConstraints { make in
+            rightView.snp.remakeConstraints { make in
                 make.size.equalTo(CGSize(width: rightView.frame.size.width, height: rightView.frame.size.height))
                 make.right.equalTo(self.snp.right).offset(-10)
                 make.centerY.equalTo(self)
             }
         }else {
-            tf.snp.makeConstraints { make in
+            tf.snp.remakeConstraints { make in
                 make.left.equalTo(leftIV.snp.right).offset(15)
                 make.height.equalTo(35)
                 make.centerY.equalTo(self)
                 make.right.equalTo(self.snp.right).offset(-10)
             }
         }
-        
     }
     
     required init?(coder: NSCoder) {
@@ -90,23 +102,42 @@ class LFLoginMentView: UIView {
         let l = UIView(frame: .init(x: 0, y: 0, width: 28, height: 2))
         l.layer.cornerRadius = 1
         l.layer.masksToBounds = true
-        l.backgroundColor = .blue
+//        l.backgroundColor = UIColor.getMain()
+        return l
+    }()
+    
+    let bLine: UIView = {
+        let l = UIView()
+        l.layer.cornerRadius = 1
+        l.layer.masksToBounds = true
+//        l.backgroundColor = UIColor.init(hex: "#EDEDEE")
         return l
     }()
     
     init(titles: [String]) {
         super.init(frame: .zero)
+        self.addSubview(bLine)
+        bLine.snp.makeConstraints { make in
+            make.right.left.bottom.equalTo(0)
+            make.height.equalTo(0.5*UIScreen.main.scale)
+        }
+
         self.addSubview(line)
+
 //        self.titles = titles
         for (i, str) in titles.enumerated() {
             let btn = UIButton()
             btn.setTitle(str, for: .normal)
-            btn.setTitleColor(.black, for: .normal)
-            btn.setTitleColor(.blue, for: .selected)
+//            btn.setTitleColor(UIColor.text99(), for: .normal)
+//            btn.setTitleColor(UIColor.getMain(), for: .selected)
+            btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
             btn.tag = i + 10
             btn.addTarget(self, action: #selector(click(btn:)), for: .touchUpInside)
             self.btns.append(btn)
             self.addSubview(btn)
+            if i == 0 {
+                btn.isSelected = true
+            }
         
             btn.snp.makeConstraints { make in
                 if i == 0 {

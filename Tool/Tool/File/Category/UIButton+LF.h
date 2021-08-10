@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^OnClickBlock)(UIButton *btn);
+typedef void (^TimeFinishBlock)(UIButton * button);
+
 
 typedef NS_ENUM(NSUInteger, MKButtonEdgeInsetsStyle) {
 
@@ -54,6 +56,21 @@ MKButtonEdgeInsetsStyleRight // image在右，label在左
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style imageTitleSpace:(CGFloat)space;
 
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style imageTitleSpace:(CGFloat)space size:(CGSize)size;
+
+//倒计时
+@property (nonatomic, strong) dispatch_source_t timer;
+//倒计时完成block
+@property (nonatomic, strong) TimeFinishBlock timeFinishBlock;
+@property (nonatomic, assign) NSInteger timeOutNumber;
+/**
+ * 倒计时
+ *@param timeout 倒计时秒数
+ *@param tittle 倒计时完成后button的文字，比如：重新获取验证码
+ *@param waitTittle 倒计时单位 s m h
+ *@param FColor 倒计时完成后button的颜色
+ *@param WColor 倒计时过程中的button颜色
+ */
+- (void)lf_startCountDownTime:(NSInteger )timeout finishTitle:(NSString *)tittle waitTittle:(NSString *)waitTittle finishColor:(UIColor *)FColor waitColor:(UIColor *)WColor Finish:(TimeFinishBlock)timeBlock;
 
 @end
 

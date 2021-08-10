@@ -11,6 +11,7 @@
 @implementation UIButton (LF)
 
 static char onClickBlockKey;
+static char timeKey;
 
 - (OnClickBlock)onClickBlock {
     return objc_getAssociatedObject(self, &onClickBlockKey);
@@ -239,5 +240,101 @@ static char onClickBlockKey;
     self.imageEdgeInsets = imageEdgeInsets;
     
 }
+
+
+///-------------------     倒计时      ---------------////
+- (void)lf_startCountDownTime:(NSInteger )timeout finishTitle:(NSString *)tittle waitTittle:(NSString *)waitTittle finishColor:(UIColor *)FColor waitColor:(UIColor *)WColor Finish:(TimeFinishBlock)timeBlock {
+    
+    
+    __weak typeof(self) weakSelf = self;
+    __block NSInteger timeOut=timeout; //倒计时时间
+    weakSelf.timeFinishBlock = timeBlock;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    weakSelf.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    
+    dispatch_source_set_timer(self.timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    
+    dispatch_source_set_event_handler(self.timer, ^{
+        if(timeOut<=0){ //倒计时结束，关闭
+            
+            dispatch_source_cancel(weakSelf.timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(weakSelf.timeFinishBlock)
+                {
+                    weakSelf.timeFinishBlock(weakSelf);
+                }
+                
+                if(FColor) weakSelf.backgroundColor = FColor;
+                
+                if(tittle) [weakSelf setTitle:tittle forState:UIControlStateNormal];
+                
+                self.userInteractionEnabled = YES;
+            });
+        }else{
+            //  int minutes = timeout / 60;
+            int seconds = timeOut % 60;
+            weakSelf.timeOutNumber = seconds;
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(WColor) weakSelf.backgroundColor = WColor;
+                
+                if(waitTittle.length==0)
+                {
+                    [weakSelf setTitle:[NSString stringWithFormat:@"%@",strTime] forState:UIControlStateNormal];
+                }else
+                {
+                    [weakSelf setTitle:[NSString stringWithFormat:@"%@%@",strTime,waitTittle] forState:UIControlStateNormal];
+                    
+                }
+                
+                weakSelf.userInteractionEnabled = NO;
+                
+            });
+            timeOut--;
+            
+        }
+    });
+    dispatch_resume(weakSelf.timer);
+}
+
+-(void)setTimeFinishBlock:(TimeFinishBlock)timeFinishBlock
+{
+    objc_setAssociatedObject(self, @selector(timeFinishBlock), timeFinishBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
+}
+
+-(TimeFinishBlock)timeFinishBlock
+{
+    return objc_getAssociatedObject(self, @selector(timeFinishBlock));
+}
+
+
+-(void)setTimeOutNumber:(NSInteger)timeOutNumber
+{
+    NSNumber * number = [NSNumber numberWithInteger:timeOutNumber];
+    objc_setAssociatedObject(self, @selector(timeOutNumber), number, OBJC_ASSOCIATION_ASSIGN);
+    
+}
+
+-(NSInteger)timeOutNumber
+{
+    NSNumber * number = objc_getAssociatedObject(self, @selector(timeOutNumber));
+    return number.integerValue;
+}
+
+
+-(void)setTimer:(dispatch_source_t)timer
+{
+    objc_setAssociatedObject(self, &timeKey, timer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(dispatch_source_t)timer
+{
+    return  objc_getAssociatedObject(self, &timeKey);
+}
+
 
 @end
