@@ -17,11 +17,18 @@ class LFLoginInputView: UIView {
     
     let tf: UITextField = {
         let tf = UITextField()
-        tf.clearButtonMode = .always
+        tf.clearButtonMode = .whileEditing
         tf.font = .systemFont(ofSize: 15)
+        tf.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
+        tf.addTarget(self, action: #selector(textFieldDidEditingV), for: .editingChanged)
+        tf.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
+        tf.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEndOnExit)
         return tf
     }()
-
+    var didBeginEditingBlock: ((_ textField: UITextField) -> ())?
+    var didEditingChangedBlock: ((_ textField: UITextField) -> ())?
+    var didEndEditingBlock: ((_ textField: UITextField) -> ())?
+    
     var rightView: UIView? {
         didSet {
             nextLayout()
@@ -30,7 +37,7 @@ class LFLoginInputView: UIView {
     
     let line: UIView = {
         let l = UIView()
-//        l.backgroundColor = .init(hex: "#EDEDEE")
+        l.backgroundColor = .init(hex: "#EDEDEE")
         return l
     }()
 
@@ -42,8 +49,8 @@ class LFLoginInputView: UIView {
         self.addSubview(leftIV)
         
 //        tf.placeholder = pl
-//        tf.attributedPlaceholder = NSAttributedString.init(string:pl, attributes: [
-//                    NSAttributedString.Key.foregroundColor:UIColor.text99()])
+        tf.attributedPlaceholder = NSAttributedString.init(string:pl, attributes: [
+                    NSAttributedString.Key.foregroundColor:UIColor.text99()])
         self.addSubview(tf)
         
         self.addSubview(line)
@@ -91,9 +98,31 @@ class LFLoginInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    @objc func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let block = didBeginEditingBlock {
+            block(textField)
+        }
+    }
+    
+    @objc func textFieldDidEditingV(_ textField: UITextField) {
+        if let block = didEditingChangedBlock {
+            block(textField)
+        }
+    }
+    
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        if let block = didEndEditingBlock {
+            block(textField)
+        }
+    }
+    
 }
 ///2个按钮
 class LFLoginMentView: UIView {
+    
+    var menuType = 0
+    
     var btns : [UIButton] = []
     
     var clickBlock: ((NSInteger) -> ())?
@@ -102,7 +131,7 @@ class LFLoginMentView: UIView {
         let l = UIView(frame: .init(x: 0, y: 0, width: 28, height: 2))
         l.layer.cornerRadius = 1
         l.layer.masksToBounds = true
-//        l.backgroundColor = UIColor.getMain()
+        l.backgroundColor = UIColor.getMain()
         return l
     }()
     
@@ -110,7 +139,7 @@ class LFLoginMentView: UIView {
         let l = UIView()
         l.layer.cornerRadius = 1
         l.layer.masksToBounds = true
-//        l.backgroundColor = UIColor.init(hex: "#EDEDEE")
+        l.backgroundColor = UIColor.init(hex: "#EDEDEE")
         return l
     }()
     
@@ -128,8 +157,8 @@ class LFLoginMentView: UIView {
         for (i, str) in titles.enumerated() {
             let btn = UIButton()
             btn.setTitle(str, for: .normal)
-//            btn.setTitleColor(UIColor.text99(), for: .normal)
-//            btn.setTitleColor(UIColor.getMain(), for: .selected)
+            btn.setTitleColor(UIColor.text99(), for: .normal)
+            btn.setTitleColor(UIColor.getMain(), for: .selected)
             btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
             btn.tag = i + 10
             btn.addTarget(self, action: #selector(click(btn:)), for: .touchUpInside)
@@ -140,12 +169,16 @@ class LFLoginMentView: UIView {
             }
         
             btn.snp.makeConstraints { make in
-                if i == 0 {
-                    make.left.equalTo(0)
-                    make.right.equalTo(self.snp.centerX).offset(0)
+                if titles.count >= 2 {
+                    if i == 0 {
+                        make.left.equalTo(0)
+                        make.right.equalTo(self.snp.centerX).offset(0)
+                    }else {
+                        make.left.equalTo(self.snp.centerX).offset(0)
+                        make.right.equalTo(0)
+                    }
                 }else {
-                    make.left.equalTo(self.snp.centerX).offset(0)
-                    make.right.equalTo(0)
+                    make.left.right.equalTo(0)
                 }
                 make.top.bottom.equalTo(self)
             }
@@ -179,8 +212,10 @@ class LFLoginMentView: UIView {
                 
             }
         }
+        let tag = btn.tag - 10
+        menuType = tag
         if let blcok = clickBlock {
-            blcok(btn.tag - 10)
+            blcok(tag)
         }
     }
 }
