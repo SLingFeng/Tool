@@ -12,7 +12,7 @@
 //#import "LFInputAngleTableViewCell.h"
 //#import "FSTextView.h"
 #import <Masonry/Masonry.h>
-#import "UIColor+LF.h"
+#import "UIColor+Extension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class LFInputAngleTableViewCell;
@@ -69,6 +69,7 @@ cell的状态
 
 #pragma mark - 输入cell
 
+@property (nonatomic, copy) NSString *tf_text;
 
 @property (nonatomic, copy) NSString *placeholder;
 

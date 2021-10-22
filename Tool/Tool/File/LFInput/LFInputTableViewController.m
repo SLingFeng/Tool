@@ -18,7 +18,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.1)];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = KBGCOLOR;
-    self.tableView.backgroundColor = [UIColor colorHex:@"#F8F9FB"];
+    self.tableView.backgroundColor = [UIColor colorWithString:@"#F8F9FB"];
     self.tableView.separatorStyle = 1;
     [self.tableView setSeparatorColor:kLineColor];
     self.tableView.separatorInset = UIEdgeInsetsZero;
@@ -26,7 +26,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    
+    self.ForbiddenBackGesture = false;
     
 //    if (@available(iOS 11.0, *)) {
 //        self.tableView.estimatedSectionHeaderHeight = 0.01;

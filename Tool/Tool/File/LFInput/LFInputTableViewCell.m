@@ -81,7 +81,7 @@
 //    NSDictionary * style = @{@"font" : [UIFont systemFontOfSize:14],
 //                             //                             @"font2" : [SLFCommonTools pxFont:30],
 //                             @"color" : [UIColor grayColor],
-//                             @"plColor" : [UIColor colorHex:@"AFB2B9"],
+//                             @"plColor" : [UIColor colorWithString:@"AFB2B9"],
 //                             //                             @"color3" : HEXCOLOR(0xFF0000)
 //
 //    };
@@ -249,8 +249,8 @@
         }
     }
     
+    CGFloat w = [self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(SCREEN_WIDTH - 30, 30)].width + 5;
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        CGFloat w = [self.titleLabel.text sizeWithFont:self.titleLabel.font maxSize:CGSizeMake(200, 30)].width + 5;
         make.width.mas_equalTo(w);
         make.left.offset(15);
         make.centerY.offset(0);
@@ -264,7 +264,8 @@
             make.right.equalTo(self.arrowIV.mas_left).offset(-6);
         }
         make.centerY.offset(0);
-        make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityLow();
+//        make.left.equalTo(self.titleLabel.mas_right).offset(10).priorityLow();
+        make.left.mas_equalTo(15+w+10);
         
         //            make.width.mas_lessThanOrEqualTo(kScreenW - model.maxLeftSpace - model.rightSpace - self.titleLabel.frame.size.width - 5);
     }];
@@ -293,7 +294,7 @@
 - (UILabel *)c_RequiredLabel {
 
     self.requiredLabel = [[UILabel alloc] init];
-    self.requiredLabel.textColor = [UIColor colorHex:@"#FB4B4B"];
+    self.requiredLabel.textColor = [UIColor colorWithString:@"#FB4B4B"];
     self.requiredLabel.text = @"*";
     self.requiredLabel.font = [UIFont systemFontOfSize:(16)];
     [self.contentView addSubview:self.requiredLabel];
@@ -489,8 +490,10 @@
     self.titleLabel.textColor = model.inputCenterColor;
     self.titleLabel.font = model.titleFont;
 
+    [[self.contentView viewWithTag:2244] removeFromSuperview];
     CGFloat x = 0;
     if (model.inputCenterLeftView) {
+        model.inputCenterLeftView.tag = 2244;
         [self.contentView addSubview:model.inputCenterLeftView];
         [model.inputCenterLeftView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.titleLabel.mas_left).offset(-8);
